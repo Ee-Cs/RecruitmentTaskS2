@@ -45,6 +45,52 @@ Used is an in-memory store.
 - before changing mission status to 'Ended' assert that no rocket in mission has status 'In space'
 - rockets should not be assigned to missions in status 'Ended', rockets could only be unassigned from that missions
 
+## Business Logic
+```mermaid
+flowchart LR
+  HOME(Home):::orangeBox
+  MNG_MIS(Manage Missions):::redBox
+  TRA_ROC(Transfer Rockets):::greenBox
+  PDF(Create PDF Reports):::yellowBox
+  WBC("Web<br>Browser<br>Client")
+%% Flows
+  subgraph Node.js
+    subgraph "Angular Application"
+      HOME --> MNG_MIS
+      HOME --> TRA_ROC
+      HOME --> PDF
+    end
+  end
+%% Style Definitions
+  classDef redBox fill: #ff6666, stroke: #000, stroke-width: 2px
+  classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
+  classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
+  classDef orangeBox  fill: #ffa500,stroke: #000, stroke-width:2px
+```
+
+## Mission Statuses
+```mermaid
+flowchart LR
+SCD(Scheduled):::magentaBox
+PND((Pending)):::yellowBox
+PRG(In Progress):::greenBox
+END(Ended):::cyanBox
+
+subgraph "Mission Statuses"
+  subgraph "Mission in Progress"
+    SCD ==> PRG --> END
+  end
+  PRG <.-> PND
+end
+
+%% Style Definitions
+  classDef redBox fill: #ff6666, stroke: #000, stroke-width: 2px
+  classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
+  classDef magentaBox fill: #ff00ff, stroke: #000, stroke-width: 2px
+  classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
+```
+
+## Rocket Statuses
 ```mermaid
 flowchart LR
 %% 
@@ -63,33 +109,7 @@ end
 %% Style Definitions
   classDef redBox fill: #ff6666, stroke: #000, stroke-width: 2px
   classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
-  classDef cyanBox fill: #00ffff, stroke: #000, stroke-width: 2px
-  classDef magentaBox fill: #ff00ff, stroke: #000, stroke-width: 2px
   classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
-  classDef orangeBox  fill: #ffa500,stroke: #000, stroke-width:2px
-```
-
-```mermaid
-flowchart LR
-SCD(Scheduled):::magentaBox
-PND((Pending)):::yellowBox
-PRG(In Progress):::greenBox
-END(Ended):::cyanBox
-
-subgraph "Mission Statuses"
-  subgraph "Mission in Progress"
-    SCD ==> PRG --> END
-  end
-  PRG <.-> PND
-end
-
-%% Style Definitions
-  classDef redBox fill: #ff6666, stroke: #000, stroke-width: 2px
-  classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
-  classDef cyanBox fill: #00ffff, stroke: #000, stroke-width: 2px
-  classDef magentaBox fill: #ff00ff, stroke: #000, stroke-width: 2px
-  classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
-  classDef orangeBox  fill: #ffa500,stroke: #000, stroke-width:2px
 ```
 
 Scenario:

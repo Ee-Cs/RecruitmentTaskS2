@@ -10,6 +10,7 @@ import { TEST_MISSIONS, TEST_MISSION_ID, TEST_ROCKET_POOL, TEST_ROCKET_ID } from
  * that the {@link RocketPoolService} can be instantiated and functions correctly.
  */
 describe('RocketPoolService', () => {
+  let missionService: MissionService;
   let rocketPoolService: RocketPoolService;
   /**
    * Sets up the testing module for RocketPoolService.
@@ -17,7 +18,7 @@ describe('RocketPoolService', () => {
    */
   beforeEach(() => {
     // reseting data for tests
-    const missionService = TestBed.inject(MissionService);
+    missionService = TestBed.inject(MissionService);
     missionService.setMissions(TEST_MISSIONS);
 
     rocketPoolService = TestBed.inject(RocketPoolService);
@@ -61,27 +62,49 @@ describe('RocketPoolService', () => {
     */
 
    /**
-   * Tests transferring an rocket between missions.
-   * Ensures the rocket is removed from the source mission and added to the target mission.
+   * Tests assigning a rocket to the mission.
+   * Ensures the rocket is removed from the rocket pool and added to the mission.
    */
-  it('should transfer an rocket between missions', () => {
+  it('should assign a rocket to the mission', () => {
     // GIVEN
     missionService.setMissions(TEST_MISSIONS);
     const sourceMissionId = TEST_MISSION_ID;
     const targetMissionId = TEST_MISSION_ID + 1;
     const transferedRockets = TEST_MISSIONS[0].rockets;
+    const assignFlag = true;
     // WHEN
-
-
-    // missionService.transferRockets(
-    //   targetMissionId,
-    //   transferedRockets,
-    //   true
-    // );
-});
-
-
-    
+    rocketPoolService.transferRockets(
+      TEST_MISSION_ID,
+      transferedRockets,
+      assignFlag
+    );
+    // THEN
+    const actualRocketPool = rocketPoolService.getRockets()[0];
+    transferedRockets.forEach(rocket => {
+      expect(actualRocketPool?.rockets.find(emp => emp.id === rocket.id)).toBeUndefined();
+    });
+    const actualMission = missionService.getMission(targetMissionId);
+    transferedRockets.forEach(rocket => {
+      expect(actualMission?.rockets.find(emp => emp.id === rocket.id)).toBeDefined();
+    });
+  });
+  //  /**
+  //  * Tests unassigning a rocket from the mission.
+  //  * Ensures the rocket is removed from the mission and added to the rocket pool.
+  //  */
+  // it('should unassign a rocket from the mission', () => {
+  //   // GIVEN
+  //   missionService.setMissions(TEST_MISSIONS);
+  //   const sourceMissionId = TEST_MISSION_ID;
+  //   const targetMissionId = TEST_MISSION_ID + 1;
+  //   const transferedRockets = TEST_MISSIONS[0].rockets;
+  //   const assignFlag = false;
+  //   // WHEN
+  //   rocketPoolService.transferRockets(
+  //     TEST_MISSION_ID,
+  //     transferedRockets,
+  //     assignFlag
+  //   );
   //   // THEN
   //   const actualSourceMission = missionService.getMission(sourceMissionId);
   //   transferedRockets.forEach(rocket => {
@@ -92,3 +115,7 @@ describe('RocketPoolService', () => {
   //     expect(actualTargetMission?.rockets.find(emp => emp.id === rocket.id)).toBeDefined();
   //   });
   // });
+});
+
+
+    
