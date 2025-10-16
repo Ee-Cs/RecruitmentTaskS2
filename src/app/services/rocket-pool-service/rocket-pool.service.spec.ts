@@ -101,13 +101,13 @@ describe('RocketPoolService', () => {
       assignFlag
     );
     // THEN
-    const actualSourceMission = missionService.getMission(TEST_MISSION_ID);
+    const actualMission = missionService.getMission(TEST_MISSION_ID);
     transferedRockets.forEach(rocket => {
-      expect(actualSourceMission?.rockets.find(emp => emp.id === rocket.id)).toBeUndefined();
+      expect(actualMission?.rockets.find(emp => emp.id === rocket.id)).toBeUndefined();
     });
-    const actualTargetMission = missionService.getMission(targetMissionId);
-    transferedRockets.forEach(rocket => {
-      expect(actualTargetMission?.rockets.find(emp => emp.id === rocket.id)).toBeDefined();
+    const actualRocketPool = rocketPoolService.getRockets();
+    TEST_ROCKET_POOL.forEach(rocket => {
+      expect(actualRocketPool?.find(roc => roc.id === rocket.id)).toBeDefined();
     });
   });
 });

@@ -2,8 +2,7 @@
 
 Angular 20 Material application using an in-memory store.
 
-Live Angular application demo  ➔   
-  [Recruitment Task S2 (GitHub Pages)](https://Ee-Cs.github.io/RecruitmentTaskS2/home)
+Live Angular application demo  ➔  [Recruitment Task S2 (GitHub Pages)](https://Ee-Cs.github.io/RecruitmentTaskS2/home)
 
 ## Business Logic
 ```mermaid
@@ -109,11 +108,12 @@ SPC <.-> REP
   - the missions presented in report are sorted by the number of rockets assigned
   - for every mission it is presented the mission status and all rockets assigned to this mission
 
-## Implemented tests
+## Testing
 - the unit tests for components and services
 - the end-to-end tests (integration tests) with Cypress
 - the application live demo with data sets
 
+## Development
 <details>
 <summary>The proposed validation logic to implement</summary>
 
