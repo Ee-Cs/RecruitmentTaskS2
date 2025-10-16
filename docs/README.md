@@ -50,9 +50,9 @@ PRG <.-> PND
 ```mermaid
 flowchart LR
 %% 
-GND(On ground):::yellowBox
-SPC(In space):::greenBox
-REP((In repair)):::redBox
+GND(On Ground):::yellowBox
+SPC(In Space):::greenBox
+REP((In Repair)):::redBox
 
 subgraph "Mission in Progress"
   GND <--> SPC
@@ -98,7 +98,7 @@ SPC <.-> REP
 - When the "Transfer Rockets" page is selected:
   - The right pane shows unassigned rockets (the rocket pool).
   - The left pane shows rockets of the selected mission that are not in space.
-  - Create an unassigned rocket with status "On ground".
+  - Create an unassigned rocket with status "On Ground".
   - Add that unassigned rocket to the rocket pool.
   - Assign rockets from the rocket pool to the selected mission.
   - Unassign rockets from the selected mission and transfer them to the rocket pool.
@@ -118,10 +118,12 @@ SPC <.-> REP
 ## Development
 <details>
 <summary>Proposed validation logic to implement</summary>
-- Before setting a rocket status to "In space", ensure that the mission is not "Scheduled".
-- Before setting a rocket status to "In repair", ensure that the mission is "Pending".
-- Before changing a mission status from "Pending" to another status, ensure no rocket in the mission has status "In repair".
-- Before changing a mission status to "In Progress", ensure no rocket in the mission has status "In repair".
-- Before changing a mission status to "Ended", ensure no rocket in the mission has status "In space".
+
+- Before setting a rocket status to "In Space", ensure that the mission is not "Scheduled".
+- Before setting a rocket status to "In Repair", ensure that the mission is "Pending".
+- Before changing a mission status from "Pending" to another status, ensure no rocket in the mission has status "In Repair".
+- Before changing a mission status to "In Progress", ensure no rocket in the mission has status "In Repair".
+- Before changing a mission status to "Ended", ensure no rocket in the mission has status "In Space".
 - Rockets must not be assigned to missions with status "Ended"; rockets may only be unassigned from such missions.
+
 </details>
