@@ -1,8 +1,8 @@
 # The Recruitment Task S2
 
-Angular 20 Material application using an in-memory store.
+Angular 20 + Angular Material application using an in-memory store.
 
-Live Angular application demo  ➔  [Recruitment Task S2 (GitHub Pages)](https://Ee-Cs.github.io/RecruitmentTaskS2/home)
+Live demo  ➔  [Recruitment Task S2 (GitHub Pages)](https://Ee-Cs.github.io/RecruitmentTaskS2/home)
 
 ## Business Logic
 ```mermaid
@@ -66,63 +66,62 @@ SPC <.-> REP
   classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 ```
 
-## The description of the business logic
-- On page selected with menu **"Home"**
-  - loading the selected data sets
-  - available are three data sets:
-    - **Standard**
-      - data set described in business requirements
-    - **Big**
-      - 182 missions
-      - each mission has 182 rockets
-      - total number of rockets is 33 124
-      - created report has 850 pages
-    - **Long Names**
-      - single mission with long name
-      - to this mission is assigned single rocket with long name
-      - name up to three hundred characters
-    - **Empty**
-      - no missions and no rockets
-  - selected data set is loaded into the local storage
-  - the previous data set is overwritten
+## Description of the business logic
+- When the "Home" page is selected:
+  - The chosen data set is loaded.
+  - Four data sets are available:
+    - Standard
+      - Data set described in the business requirements.
+    - Large Scale
+      - 182 missions.
+      - Each mission contains 182 rockets.
+      - Total number of rockets: 33,124.
+      - Generated report spans approximately 850 pages.
+    - Long Names
+      - Single mission with a long name.
+      - A single rocket with a long name is assigned to this mission.
+      - Names may be up to 300 characters.
+    - Empty
+      - No missions and no rockets.
+  - The selected data set is saved to local storage.
+  - The previously saved data set is overwritten.
 
-- On page selected with menu **"Manage Missions"**
-  - creating, reading, updating, and deleting the missions
-  - for each mission - creating, reading, updating, and deleting the rockets
-  - implemented are following functionalities
-    -  changing the mission status and the rocket status
-    - the pagination with 5, 10, 20, 50, 100 or 200 records per page
-    - default pagination setting is 5 records per page
-    - sorting by name or by status.
-- On page selected with menu **"Transfer Rockets"**
-  - on the right side are presented rockets in the rocket pool
-  - on the left side are presented rockets of the selected mission which are not in space
-  - creating an unassigned rocket with status "On Ground"
-  - this unassigned rocket is added to the rocket pool
-  - taking the rockets from the rocket pool and assigning them to the single mission
-  - unassigning the rockets from the selected mission and transfering them to the rocket pool
-- On page selected with menu **"Create PDF Reports"**
-  - application creates the PDF report file 
-  - it is possible to open, download, or print the created file
-  - the summary of missions is in the "Missions and Rockets Report"
-  - the missions presented in report are sorted by the number of rockets assigned
-  - for every mission it is presented the mission status and all rockets assigned to this mission
+- When the "Manage Missions" page is selected:
+  - Create, read, update, and delete operations for missions.
+  - For each mission: create, read, update, and delete operations for rockets.
+  - Implemented features:
+    - Changing mission and rocket statuses.
+    - Pagination with options for 5, 10, 20, 50, 100, or 200 records per page.
+    - Default pagination: 5 records per page.
+    - Sorting by name or status.
+
+- When the "Transfer Rockets" page is selected:
+  - The right pane shows unassigned rockets (the rocket pool).
+  - The left pane shows rockets of the selected mission that are not in space.
+  - Create an unassigned rocket with status "On ground".
+  - Add that unassigned rocket to the rocket pool.
+  - Assign rockets from the rocket pool to the selected mission.
+  - Unassign rockets from the selected mission and transfer them to the rocket pool.
+
+- When the "Create PDF Reports" page is selected:
+  - The application generates a PDF report.
+  - The generated file can be opened, downloaded, or printed.
+  - The "Missions and Rockets Report" provides a summary of missions.
+  - Missions in the report are sorted by the number of rockets assigned.
+  - Each mission entry shows the mission status and all rockets assigned to that mission.
 
 ## Testing
-- the unit tests for components and services
-- the end-to-end tests (integration tests) with Cypress
-- the application live demo with data sets
+- Unit tests for components and services.
+- End-to-end (integration) tests using Cypress.
+- Live demo with multiple data sets.
 
 ## Development
 <details>
-<summary>The proposed validation logic to implement</summary>
-
-- before setting rocket status to 'In space' assert that mission is not in status 'Scheduled' 
-- before setting rocket status to 'In repair' assert that mission is in status 'Pending' 
-- before changing mission status from 'Pending' to other assert that no rocket in mission is in status 'In repair'
-- before changing mission status to 'In Progress' assert that no rocket in mission has status 'In repair'
-- before changing mission status to 'Ended' assert that no rocket in mission has status 'In space'
-- rockets should not be assigned to missions in status 'Ended', rockets could only be unassigned from that missions
-
+<summary>Proposed validation logic to implement</summary>
+- Before setting a rocket status to "In space", ensure that the mission is not "Scheduled".
+- Before setting a rocket status to "In repair", ensure that the mission is "Pending".
+- Before changing a mission status from "Pending" to another status, ensure no rocket in the mission has status "In repair".
+- Before changing a mission status to "In Progress", ensure no rocket in the mission has status "In repair".
+- Before changing a mission status to "Ended", ensure no rocket in the mission has status "In space".
+- Rockets must not be assigned to missions with status "Ended"; rockets may only be unassigned from such missions.
 </details>
-

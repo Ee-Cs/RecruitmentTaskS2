@@ -46,22 +46,22 @@ describe('RocketPoolService', () => {
     expect(actualRockets.length).toBeGreaterThan(0);
     expect(actualRockets).toEqual(TEST_ROCKET_POOL);
   });
-
-  /*
-  createUnasignedRocket(name: string) {
-    const rocket: Rocket = {
-      id: this.getNextRocketId(),
-      missionId: 0,
-      name: name,
-      rocketStatus: RocketStatus.OnGround,
-    };
-    const poolRockets = this.getRockets();
-    poolRockets.push(rocket);
-    this.setRockets(poolRockets);
-  }
-    */
-
    /**
+   * Tests creating unassigned rocket.
+   * Ensures the rocket is created.
+   */
+  it('should create unassigned rocket', () => {
+    // GIVEN
+    const testRocketName = 'new test rocket';
+    // WHEN
+    rocketPoolService.createUnasignedRocket(testRocketName);
+    // THEN
+    const actualRocketPool = rocketPoolService.getRockets();
+    TEST_ROCKET_POOL.forEach(rocket => {
+      expect(actualRocketPool?.find(roc => roc.name === testRocketName)).toBeDefined();
+    });
+  });
+  /**
    * Tests assigning a rocket to the mission.
    * Ensures the rocket is removed from the rocket pool and added to the mission.
    */

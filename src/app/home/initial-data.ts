@@ -92,9 +92,10 @@ const CHARACTERS = [
   '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹', '🇺', '🇻', '🇼', '🇽', '🇾', '🇿',
 ];
 /**
- * Big data set for web local storage.
+ * Large scale data set for web local storage.
+ * The data set is for volume-oriented testing.
  */
-export const BIG_DATASET = {
+export const LARGE_SCALE_DATASET = {
    missions: [
     ...CHARACTERS.map((letterM, indexM) => ({
       id: indexM + 1,

@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
-import { STANDARD_DATASET, BIG_DATASET, LONG_NAMES_DATASET, EMPTY_DATASET } from './initial-data';
+import { STANDARD_DATASET, LARGE_SCALE_DATASET, LONG_NAMES_DATASET, EMPTY_DATASET } from './initial-data';
 /**
  * Injection token for browser storage.
  * This token is used to inject the browser's localStorage into services that require it.
@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
     const selected = this.homeForm.controls.datasetTypeSelect.value as string;
     switch (selected) {
       case 'B':
-        this.storage.setItem('missions', JSON.stringify(BIG_DATASET.missions));
+        this.storage.setItem('missions', JSON.stringify(LARGE_SCALE_DATASET.missions));
         break;
       case 'L':
         this.storage.setItem('missions', JSON.stringify(LONG_NAMES_DATASET.missions));
@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit {
   describeDatasetType(datasetType: string) {
     switch (datasetType) {
       case 'B':
-        return 'Big';
+        return 'Large Scale';
       case 'L':
         return 'Long Names';
       case 'E':
