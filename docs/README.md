@@ -2,7 +2,23 @@
 
 Angular 20 + Angular Material application using an in-memory store.
 
-Live demo  ➔  [Recruitment Task S2 (GitHub Pages)](https://Ee-Cs.github.io/RecruitmentTaskS2/home)
+<table>
+  <tr>
+    <td rowspan="3"><img alt="" src="images/borderLeft.png"></td>
+    <td><img alt="" src="images/borderHorizontal.png"></td>
+    <td rowspan="3"><img alt="" src="images/borderRight.png"></td>
+  </tr>
+  <tr>
+    <td>
+      Live demo&nbsp;&nbsp;➔&nbsp;&nbsp;
+      <a href="https://ee-cs.github.io/RecruitmentTaskS2/">Recruitment Task S2 (GitHub Pages)</a>
+    </td>
+  </tr>
+  <tr>
+    <td><img alt="" src="images/borderHorizontal.png"></td>
+  </tr>
+</table>
+
 
 ## Business Logic
 ```mermaid
