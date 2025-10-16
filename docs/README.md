@@ -115,12 +115,14 @@ SPC <.-> REP
 - the application live demo with data sets
 
 <details>
-## <summary>The proposed validation logic to implement</summary>
+<summary>The proposed validation logic to implement</summary>
+
 - before setting rocket status to 'In space' assert that mission is not in status 'Scheduled' 
 - before setting rocket status to 'In repair' assert that mission is in status 'Pending' 
 - before changing mission status from 'Pending' to other assert that no rocket in mission is in status 'In repair'
 - before changing mission status to 'In Progress' assert that no rocket in mission has status 'In repair'
 - before changing mission status to 'Ended' assert that no rocket in mission has status 'In space'
 - rockets should not be assigned to missions in status 'Ended', rockets could only be unassigned from that missions
+
 </details>
 

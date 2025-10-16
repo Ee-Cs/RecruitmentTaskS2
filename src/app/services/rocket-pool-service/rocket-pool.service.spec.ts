@@ -92,8 +92,6 @@ describe('RocketPoolService', () => {
   it('should unassign a rocket from the mission', () => {
     // GIVEN
     missionService.setMissions(TEST_MISSIONS);
-
-    
     const transferedRockets = TEST_MISSIONS[0].rockets;
     const assignFlag = false;
     // WHEN
