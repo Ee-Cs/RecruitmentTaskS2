@@ -1,0 +1,94 @@
+import { TestBed } from '@angular/core/testing';
+
+import { MissionService } from '../mission-service/mission.service';
+import { RocketPoolService } from './rocket-pool.service';
+import { TEST_MISSIONS, TEST_MISSION_ID, TEST_ROCKET_POOL, TEST_ROCKET_ID } from 'testing/test-data';
+/**
+ * Unit tests for the {@link RocketPoolService}.
+ *
+ * This test suite sets up the Angular testing environment and verifies
+ * that the {@link RocketPoolService} can be instantiated and functions correctly.
+ */
+describe('RocketPoolService', () => {
+  let rocketPoolService: RocketPoolService;
+  /**
+   * Sets up the testing module for RocketPoolService.
+   * This function is called before each test to ensure a fresh instance of the service.
+   */
+  beforeEach(() => {
+    // reseting data for tests
+    const missionService = TestBed.inject(MissionService);
+    missionService.setMissions(TEST_MISSIONS);
+
+    rocketPoolService = TestBed.inject(RocketPoolService);
+    rocketPoolService.setRockets(TEST_ROCKET_POOL);
+  });
+
+  /**
+   * Checks that the RocketPoolService is instantiated successfully.
+   */
+  it('should be created', () => {
+    expect(rocketPoolService).toBeTruthy();
+  });
+
+  /**
+   * Verifies that the initial rocket array is returned correctly.
+   * Checks that the result is an array, contains elements, and the first rocket has the expected name.
+   */
+  it('should return initial rocket array', () => {
+    // GIVEN
+    rocketPoolService.setRockets(TEST_ROCKET_POOL);
+    // WHEN
+    const actualRockets = rocketPoolService.getRockets();
+    // THEN
+    expect(Array.isArray(actualRockets)).toBeTrue();
+    expect(actualRockets.length).toBeGreaterThan(0);
+    expect(actualRockets).toEqual(TEST_ROCKET_POOL);
+  });
+
+  /*
+  createUnasignedRocket(name: string) {
+    const rocket: Rocket = {
+      id: this.getNextRocketId(),
+      missionId: 0,
+      name: name,
+      rocketStatus: RocketStatus.OnGround,
+    };
+    const poolRockets = this.getRockets();
+    poolRockets.push(rocket);
+    this.setRockets(poolRockets);
+  }
+    */
+
+   /**
+   * Tests transferring an rocket between missions.
+   * Ensures the rocket is removed from the source mission and added to the target mission.
+   */
+  it('should transfer an rocket between missions', () => {
+    // GIVEN
+    missionService.setMissions(TEST_MISSIONS);
+    const sourceMissionId = TEST_MISSION_ID;
+    const targetMissionId = TEST_MISSION_ID + 1;
+    const transferedRockets = TEST_MISSIONS[0].rockets;
+    // WHEN
+
+
+    // missionService.transferRockets(
+    //   targetMissionId,
+    //   transferedRockets,
+    //   true
+    // );
+});
+
+
+    
+  //   // THEN
+  //   const actualSourceMission = missionService.getMission(sourceMissionId);
+  //   transferedRockets.forEach(rocket => {
+  //     expect(actualSourceMission?.rockets.find(emp => emp.id === rocket.id)).toBeUndefined();
+  //   });
+  //   const actualTargetMission = missionService.getMission(targetMissionId);
+  //   transferedRockets.forEach(rocket => {
+  //     expect(actualTargetMission?.rockets.find(emp => emp.id === rocket.id)).toBeDefined();
+  //   });
+  // });
