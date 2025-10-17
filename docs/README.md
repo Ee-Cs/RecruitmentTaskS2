@@ -1,5 +1,57 @@
 # The Recruitment Task S2
 
+```geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "ID": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [20.80, 52.20],
+            [20.80, 52.30],
+            [21.20, 52.30],
+            [21.20, 52.20]
+          ]
+        ]
+      }
+    },
+  ]
+}
+```
+
+``geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [20.70, 52.20], [21.00, 52.25]
+          ],
+          [
+            [21.00, 52.25], [21.00, 52.30]
+          ],
+          [
+            [21.00, 52.30], [21.20, 52.30]
+          ]
+        ]
+      }
+    }
+  ]
+}
+``
+
+
 Angular 20 + Angular Material application using an in-memory store.
 
 <table>
@@ -218,48 +270,6 @@ Add a business process model and a decision model for missions and rockets workf
 
 0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟
 
-```geojson
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "id": 1,
-      "properties": {
-        "ID": 0
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [20.80, 52.20],
-            [21.80, 52.30],
-            [21.20, 52.30],
-            [21.20, 52.20]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [20.70, 52.20], [21.00, 52.25]
-          ],
-          [
-            [21.00, 52.25], [21.00, 52.30]
-          ],
-          [
-            [21.00, 52.30], [21.20, 52.30]
-          ]
-        ]
-      }
-    }
-  ]
-}
-```
 
 </details>
 
