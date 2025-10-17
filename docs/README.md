@@ -68,32 +68,6 @@
 }
 ```
 
-``geojson
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [20.70, 52.20], [21.00, 52.25]
-          ],
-          [
-            [21.00, 52.25], [21.00, 52.30]
-          ],
-          [
-            [21.00, 52.30], [21.20, 52.30]
-          ]
-        ]
-      }
-    }
-  ]
-}
-``
-
-
 Angular 20 + Angular Material application using an in-memory store.
 
 <table>
