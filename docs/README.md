@@ -86,6 +86,7 @@ SPC <.-> REP
 
 <details>
 <summary><mark>Mission object JSON</mark></summary>
+
 ```json
 {
   "missions": [
@@ -104,6 +105,7 @@ SPC <.-> REP
   ]
 }
 ```
+
 </details>
 
 ## Description of the business logic
@@ -174,20 +176,17 @@ SPC <.-> REP
 
 <details>
 <summary>Managing unassigned rockets in rocket pool</summary>
-
 | Action | Expected | Actual  |
 |--------|----------|---------|
 | create | ✅ Yes   | ✅ Yes |
 | update | ✅ Yes   | ❌ No  |
 | read   | ✅ Yes   | ✅ Yes |
 | delete | ✅ Yes   | ❌ No  |
-
 </details>
 
 
 <details>
 <summary>Proposed enhancements</summary>
-</details>
 - Add authorization and authentication.
 - Add a blockchain for missions and rockets management.
 - Add a business process model and a decision model for missions and rockets workflow.
