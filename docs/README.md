@@ -1,11 +1,6 @@
 # The Recruitment Task S2
 
-For professional documentation and code comments, the single-word spelling  
-"dataset" is the more modern and widely accepted choice within the American tech industry.  
 Angular 20 + Angular Material application using an in-memory store.  
-Button label: "Create new department"  
-Table column header: "First name"  
-
 
 <table>
   <tr>
