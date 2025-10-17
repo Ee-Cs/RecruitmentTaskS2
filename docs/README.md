@@ -189,9 +189,9 @@ SPC <.-> REP
 <details>
 <summary>Proposed enhancements</summary>
 
-- Add authorization and authentication.
-- Add a blockchain for missions and rockets management.
-- Add a business process model and a decision model for missions and rockets workflow.
+Add authorization and authentication.\
+Add a blockchain for missions and rockets management.\
+Add a business process model and a decision model for missions and rockets workflow.
 </details>
 
 <details>
@@ -216,45 +216,9 @@ SPC <.-> REP
 <details>
 <summary>Learning GitHub Flavored Markdown</summary>
 
-:warning:
-:zero:
-:one:
-:two:
-:three:
-:four:
-:five:
-:six:
-:seven:
-:eight:
-:nine:
-:ten:
-
 0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟
-
-Hard line break - add \ or two spaces at the end of line  
-Styles are Not working in GitHub  
-<span style="color:red">red</span>  
-<span style="color:green">green</span>  
-<span style="color:blue">blue</span>  
-<span style="color:cyan">cyan</span>  
-<span style="color:magenta">magenta</span>  
-<span style="color:yellow">yellow</span>  
-<span style="color:orange">orange</span>  
-<span style="color:brown">brown</span>  
-<span style="color:gray">gray</span>  
-
 </details>
 
-
-> # Foo
-> bar
-> baz
-
-~~~~    ruby startline=3 $%@#$
-def foo(x)
-  return 3
-end
-~~~~~~~
 
 ```geojson
 {
@@ -270,49 +234,14 @@ end
         "type": "Polygon",
         "coordinates": [
           [
-              [52.25,21.00],
-              [52.50,21.00],
-              [52.50,21.25],
-              [52.25,21.25]
+              [52,21],
+              [53,21],
+              [53,22],
+              [52,22]
           ]
         ]
       }
     }
   ]
-}
-```
-
-```topojson
-{
-  "type": "Topology",
-  "transform": {
-    "scale": [0.0005000500050005, 0.00010001000100010001],
-    "translate": [100, 0]
-  },
-  "objects": {
-    "example": {
-      "type": "GeometryCollection",
-      "geometries": [
-        {
-          "type": "Point",
-          "properties": {"prop0": "value0"},
-          "coordinates": [4000, 5000]
-        },
-        {
-          "type": "LineString",
-          "properties": {"prop0": "value0", "prop1": 0},
-          "arcs": [0]
-        },
-        {
-          "type": "Polygon",
-          "properties": {"prop0": "value0",
-            "prop1": {"this": "that"}
-          },
-          "arcs": [[1]]
-        }
-      ]
-    }
-  },
-  "arcs": [[[4000, 0], [1999, 9999], [2000, -9999], [2000, 9999]],[[0, 0], [0, 9999], [2000, 0], [0, -9999], [-2000, 0]]]
 }
 ```
