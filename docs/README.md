@@ -232,10 +232,10 @@ Add a business process model and a decision model for missions and rockets workf
         "type": "Polygon",
         "coordinates": [
           [
-            [21.00, 52.25],
-            [21.00, 52.50],
-            [21.25, 52.50],
-            [21.25, 52.25]
+            [20.80, 52.20],
+            [21.80, 52.30],
+            [21.20, 52.30],
+            [21.20, 52.20]
           ]
         ]
       }
@@ -246,13 +246,13 @@ Add a business process model and a decision model for missions and rockets workf
         "type": "MultiLineString",
         "coordinates": [
           [
-            [52.10, 21.10], [52.20, 21.20]
+            [20.70, 52.20], [21.00, 52.25]
           ],
           [
-            [52.20, 21.20], [52.30, 21.20]
+            [21.00, 52.25], [21.00, 52.30]
           ],
           [
-            [52.30, 21.20], [52.30, 21.30]
+            [21.00, 52.30], [21.20, 52.30]
           ]
         ]
       }
