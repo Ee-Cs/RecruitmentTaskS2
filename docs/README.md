@@ -84,6 +84,28 @@ SPC <.-> REP
 ```
 ---
 
+<details>
+<summary><mark>Mission object JSON</mark></summary>
+```json
+{
+  "missions": [
+    {
+      "id": 1,
+      "name": "Moon",
+      "missionStatus": "InProgress",
+      "rockets": [
+        {
+          "id": 1,
+          "name": "Apollo",
+          "rocketStatus": "OnGround"
+        }
+      ]
+    }
+  ]
+}
+```
+</details>
+
 ## Description of the business logic
 1. When the "Home" page is selected:
   - The chosen data set is loaded.
@@ -166,14 +188,13 @@ SPC <.-> REP
 <details>
 <summary>Proposed enhancements</summary>
 </details>
-
 - Add authorization and authentication.
 - Add a blockchain for missions and rockets management.
 - Add a business process model and a decision model for missions and rockets workflow.
+</details>
 
 <details>
 <summary>Mission object definition</summary>
-
 - [x] id
 - [x] name
 - [ ] description
@@ -188,7 +209,6 @@ SPC <.-> REP
 - [ ] unassigned by user
 - [ ] delete date
 - [ ] deleted by user
-
 </details>
 
 <details>
@@ -207,8 +227,9 @@ SPC <.-> REP
 :nine:
 :ten:
 
+</details>
 
-<span style="color:red">red</span><br>
+<span style="color:red">red</span> <br>
 <span style="color:green">green</span><br>
 <span style="color:blue">blue</span><br>
 <span style="color:cyan">cyan</span><br>
@@ -218,25 +239,7 @@ SPC <.-> REP
 <span style="color:brown">brown</span><br>
 <span style="color:gray">gray</span><br>
 
-<mark>highlighted words</mark>.
 
-```json
-{
-  "missions": [
-    {
-      "id": 1,
-      "name": "Moon",
-      "missionStatus": "InProgress",
-      "rockets": [
-        {
-          "id": 1,
-          "name": "Apollo",
-          "rocketStatus": "OnGround"
-        }
-      ]
-    }
-  ]
-}
-```
-
-</details>
+<span style="color:red">red</span>.
+<span style="color:green">green</span>.
+<span style="color:blue">blue</span>.
