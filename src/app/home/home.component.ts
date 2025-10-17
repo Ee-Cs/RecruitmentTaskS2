@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
     console.log('🟧HomeComponent.ngOnInit(): datasetType[%s]', datasetType);
   }
   /**
-   * Sets the data set type.
+   * Sets the dataset type.
    *
    * @param datasetType 
    * @returns void
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
     console.log('🟧HomeComponent.setDatasetType(): staged datasetType[%s]', datasetType);
   }
   /**
-   * Initialises with the selected data set.
+   * Initialises with the selected dataset.
    *
    * @returns void
    */
@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit {
     console.log('🟧HomeComponent.initialiseDataset(): datasetType[%s]', selected);
   }
   /**
-   * Describes the data set type.
+   * Describes the dataset type.
    *
    * @param datasetType 
    * @returns void

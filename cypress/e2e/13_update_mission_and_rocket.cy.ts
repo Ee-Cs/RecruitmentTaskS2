@@ -92,7 +92,7 @@ describe('Update mission and rocket', () => {
     cy.get('input[type="radio"][value="S"]').should('be.checked');
     cy.contains('mat-radio-button', 'Empty').click();
     cy.get('input[type="radio"][value="E"]').should('be.checked');
-    cy.contains('button', 'Load data set').should('not.be.disabled').click();
+    cy.contains('button', 'Load dataset').should('not.be.disabled').click();
     cy.screenshot(`7_home`);
   });
 });

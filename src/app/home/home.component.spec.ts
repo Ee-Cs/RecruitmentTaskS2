@@ -54,7 +54,7 @@ describe('HomeComponent', () => {
     // THEN
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('Home');
-    expect(compiled.textContent).toContain('Data Set');
+    expect(compiled.textContent).toContain('Dataset');
     expect(compiled.textContent).toContain('Standard');
     expect(compiled.textContent).toContain('Big');
     expect(compiled.textContent).toContain('Empty');

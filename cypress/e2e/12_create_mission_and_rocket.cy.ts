@@ -14,8 +14,8 @@ describe('Create mission and rocket', () => {
       */
     cy.visit('/');
     cy.contains('Home').should('be.visible');
-    cy.contains('Data Set').should('be.visible');
-    cy.contains('Load data set').should('be.visible');
+    cy.contains('Dataset').should('be.visible');
+    cy.contains('Load dataset').should('be.visible');
     cy.contains('Standard').should('be.visible');
     cy.contains('Large Scale').should('be.visible');
     cy.contains('Long Names').should('be.visible');
@@ -23,7 +23,7 @@ describe('Create mission and rocket', () => {
     cy.get('input[type="radio"][value="S"]').should('be.checked');
     cy.contains('mat-radio-button', 'Empty').click();
     cy.get('input[type="radio"][value="E"]').should('be.checked');
-    cy.contains('button', 'Load data set').should('not.be.disabled').click();
+    cy.contains('button', 'Load dataset').should('not.be.disabled').click();
     cy.screenshot(`1_home`);
     cy.get('button').contains('Menu').click();
     cy.get('button').contains('⏵⏵⏵').click();
@@ -88,7 +88,7 @@ describe('Create mission and rocket', () => {
     cy.get('input[type="radio"][value="E"]').should('be.checked');
     cy.contains('mat-radio-button', 'Standard').click();
     cy.get('input[type="radio"][value="S"]').should('be.checked');
-    cy.contains('button', 'Load data set').should('not.be.disabled').click();
+    cy.contains('button', 'Load dataset').should('not.be.disabled').click();
     cy.screenshot(`8_home`);
   });
 });

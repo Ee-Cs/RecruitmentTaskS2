@@ -1,7 +1,7 @@
 import { MissionStatus } from '../models/mission-status';
 import { RocketStatus } from '../models/rocket-status';
 /**
- * Standard data set for web local storage.
+ * Standard dataset for web local storage.
  */
 export const STANDARD_DATASET = {
   'missions': [
@@ -92,8 +92,8 @@ const CHARACTERS = [
   '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹', '🇺', '🇻', '🇼', '🇽', '🇾', '🇿',
 ];
 /**
- * Large scale data set for web local storage.
- * The data set is for volume-oriented testing.
+ * Large scale dataset for web local storage.
+ * The dataset is for volume-oriented testing.
  */
 export const LARGE_SCALE_DATASET = {
    missions: [
@@ -113,7 +113,7 @@ export const LARGE_SCALE_DATASET = {
  };
 
 /**
- * Big data set for web local storage.
+ * Big dataset for web local storage.
  */
 export const LONG_NAMES_DATASET = {
   'missions': [
@@ -150,7 +150,7 @@ export const LONG_NAMES_DATASET = {
 };
 
 /**
- * Empty data set for web local storage.
+ * Empty dataset for web local storage.
  */
 export const EMPTY_DATASET = { missions: [] };
 

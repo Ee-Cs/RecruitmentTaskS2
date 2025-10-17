@@ -11,7 +11,7 @@
     <mat-card-actions>
         <div class="home-card-row">
             <div class="home-card-col repository-type-label">
-                Data Set
+                Dataset
             </div>
             <div class="home-card-col">
                 <form [formGroup]="homeForm">
@@ -28,8 +28,8 @@
                 <button mat-raised-button color="primary" class="load-dataset-button"
                         (click)="initialiseDataset()"
                         [disabled]="homeForm.controls.datasetTypeSelect.value === originalDatasetType"
-                        aria-label="Load data set">
-                    Load data set
+                        aria-label="Load dataset">
+                    Load dataset
                 </button>
             </div>
         </div>
