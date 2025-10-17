@@ -217,8 +217,6 @@ Add a business process model and a decision model for missions and rockets workf
 <summary>Learning GitHub Flavored Markdown</summary>
 
 0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟
-</details>
-
 
 ```geojson
 {
@@ -234,10 +232,27 @@ Add a business process model and a decision model for missions and rockets workf
         "type": "Polygon",
         "coordinates": [
           [
-              [52,21],
-              [53,21],
-              [53,22],
-              [52,22]
+            [52.25, 21.00],
+            [52.50, 21.00],
+            [52.50, 21.25],
+            [52.25, 21.25]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [52.10, 21.10], [52.20, 21.20]
+          ],
+          [
+            [52.20, 21.20], [52.30, 21.20]
+          ],
+          [
+            [52.30, 21.20], [52.30, 21.30]
           ]
         ]
       }
@@ -245,3 +260,7 @@ Add a business process model and a decision model for missions and rockets workf
   ]
 }
 ```
+
+</details>
+
+
