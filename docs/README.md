@@ -176,6 +176,7 @@ SPC <.-> REP
 
 <details>
 <summary>Managing unassigned rockets in rocket pool</summary>
+
 | Action | Expected | Actual  |
 |--------|----------|---------|
 | create | ✅ Yes   | ✅ Yes |
@@ -187,6 +188,7 @@ SPC <.-> REP
 
 <details>
 <summary>Proposed enhancements</summary>
+
 - Add authorization and authentication.
 - Add a blockchain for missions and rockets management.
 - Add a business process model and a decision model for missions and rockets workflow.
@@ -194,6 +196,7 @@ SPC <.-> REP
 
 <details>
 <summary>Mission object definition</summary>
+
 - [x] id
 - [x] name
 - [ ] description
