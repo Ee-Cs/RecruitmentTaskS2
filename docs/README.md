@@ -195,7 +195,7 @@ SPC <.-> REP
 <summary>Checking Github README creation with Markdown</summary>
 
 :warning:
-
+:zero:
 :one:
 :two:
 :three:
@@ -208,19 +208,17 @@ SPC <.-> REP
 :ten:
 
 
-- <span style="color:red">red</span>
-- <span style="color:green">green</span>
-- <span style="color:blue">blue</span>
-- <span style="color:cyan">cyan</span>
-- <span style="color:magenta">magenta</span>
-- <span style="color:yellow">yellow</span>
-- <span style="color:orange">orange</span>
-- <span style="color:brown">brown</span>
-- <span style="color:gray">gray</span>
+<span style="color:red">red</span><br>
+<span style="color:green">green</span><br>
+<span style="color:blue">blue</span><br>
+<span style="color:cyan">cyan</span><br>
+<span style="color:magenta">magenta</span><br>
+<span style="color:yellow">yellow</span><br>
+<span style="color:orange">orange</span><br>
+<span style="color:brown">brown</span><br>
+<span style="color:gray">gray</span><br>
 
-to highlight these ==very important words==
-
-<mark>very important words</mark>.
+<mark>highlighted words</mark>.
 
 ```json
 {
