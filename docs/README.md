@@ -154,7 +154,7 @@ SPC <.-> REP
 <summary>Managing unassigned rockets in rocket pool</summary>
 
 | Action | Expected | Actual  |
-|--------|--------------------|
+|--------|----------|---------|
 | create | ✅ Yes   | ✅ Yes |
 | update | ✅ Yes   | ❌ No  |
 | read   | ✅ Yes   | ✅ Yes |
@@ -162,8 +162,14 @@ SPC <.-> REP
 
 </details>
 
-Add a blockchain for missions and rockets management.
-Add a business process model and a decision model for missions and rockets workflow.
+
+<details>
+<summary>Proposed enhancements</summary>
+</details>
+
+- Add authorization and authentication.
+- Add a blockchain for missions and rockets management.
+- Add a business process model and a decision model for missions and rockets workflow.
 
 <details>
 <summary>Mission object definition</summary>
@@ -185,13 +191,32 @@ Add a business process model and a decision model for missions and rockets workf
 
 </details>
 
+<details>
+<summary>Checking Github README creation with Markdown</summary>
+
 :warning:
 
 :one:
+:two:
+:three:
+:four:
+:five:
+:six:
+:seven:
+:eight:
+:nine:
+:ten:
 
-<span style="color:red">red</span>.
-<span style="color:green">green</span>.
-<span style="color:blue">blue</span>.
+
+- <span style="color:red">red</span>
+- <span style="color:green">green</span>
+- <span style="color:blue">blue</span>
+- <span style="color:cyan">cyan</span>
+- <span style="color:magenta">magenta</span>
+- <span style="color:yellow">yellow</span>
+- <span style="color:orange">orange</span>
+- <span style="color:brown">brown</span>
+- <span style="color:gray">gray</span>
 
 to highlight these ==very important words==
 
@@ -199,19 +224,21 @@ to highlight these ==very important words==
 
 ```json
 {
-  'missions': [
+  "missions": [
     {
-      'id': 1,
-      'name': 'Moon',
-      'missionStatus': MissionStatus.InProgress,
-      'rockets': [
+      "id": 1,
+      "name": "Moon",
+      "missionStatus": "InProgress",
+      "rockets": [
         {
-          'id': 11,
-          'name': 'Apollo',
-          'rocketStatus': RocketStatus.OnGround
+          "id": 1,
+          "name": "Apollo",
+          "rocketStatus": "OnGround"
         }
       ]
     }
   ]
 }
 ```
+
+</details>
