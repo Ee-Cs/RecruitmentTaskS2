@@ -7,7 +7,7 @@ import { RocketFormComponent } from './manage/forms/rocket-form/rocket-form.comp
 import { RocketTableComponent } from './manage/tables/rocket-table/rocket-table.component';
 import { RocketTransferComponent } from './transfer/rocket-transfer.component';
 import { ReportComponent } from './report/report.component';
-import { UnasignedRocketFormComponent } from './manage/forms/unasigned-rocket-form/unasigned-rocket-form.component';
+import { UnassignedRocketFormComponent } from './manage/forms/unassigned-rocket-form/unassigned-rocket-form.component';
 /**
  * Application routes for the Angular application.
  * This file defines the routes for the application, including paths for
@@ -37,8 +37,8 @@ export const routes: Routes = [
     component: RocketFormComponent,
   },
   {
-    path: 'unasigned-rocket-form',
-    component: UnasignedRocketFormComponent,
+    path: 'unassigned-rocket-form',
+    component: UnassignedRocketFormComponent,
   },
   {
     path: 'transfer',

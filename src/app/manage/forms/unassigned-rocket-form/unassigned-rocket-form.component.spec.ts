@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
-import { UnasignedRocketFormComponent } from './unasigned-rocket-form.component';
+import { UnassignedRocketFormComponent } from './unassigned-rocket-form.component';
 import { Rocket } from 'models/rocket';
 import { RocketStatus } from 'models/rocket-status';
 import { RocketService } from 'services/rocket-service/rocket.service';
@@ -15,9 +15,9 @@ import * as testData from 'testing/test-data';
 //  * It is designed to create, update, or delete rocket records.
 //  */
 // describe('RocketFormComponent', () => {
-//   let component: UnasignedRocketFormComponent;
+//   let component: UnassignedRocketFormComponent;
 //   let rocketServiceSpy: jasmine.SpyObj<RocketService>;
-//   let fixture: ComponentFixture<UnasignedRocketFormComponent>;
+//   let fixture: ComponentFixture<UnassignedRocketFormComponent>;
 //   /**
 //    * Sets up the testing module and compiles the component before each test.
 //    */
@@ -49,7 +49,7 @@ import * as testData from 'testing/test-data';
 //       ],
 //     }).compileComponents();
 
-//     fixture = TestBed.createComponent(UnasignedRocketFormComponent);
+//     fixture = TestBed.createComponent(UnassignedRocketFormComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });
@@ -83,11 +83,11 @@ import * as testData from 'testing/test-data';
 //     expect(component.rocketStatuses[0]).toBe(RocketStatus.OnGround);
 //     expect(component.rocketStatuses[1]).toBe(RocketStatus.InSpace);
 //     expect(component.rocketStatuses[2]).toBe(RocketStatus.InRepair);
-//     expect(component.unasignedRocketForm).toBeDefined();
-//     expect(component.unasignedRocketForm.valid).toBeFalse();
-//     expect(component.unasignedRocketForm.get('name')?.value).toBe('');
-//     expect(component.unasignedRocketForm.get('rocketStatus')?.value).toBeDefined();
-//     expect(component.unasignedRocketForm.get('rocketStatus')?.value).toBe(
+//     expect(component.unassignedRocketForm).toBeDefined();
+//     expect(component.unassignedRocketForm.valid).toBeFalse();
+//     expect(component.unassignedRocketForm.get('name')?.value).toBe('');
+//     expect(component.unassignedRocketForm.get('rocketStatus')?.value).toBeDefined();
+//     expect(component.unassignedRocketForm.get('rocketStatus')?.value).toBe(
 //       component.rocketStatuses[0]
 //     );
 //   });
@@ -100,8 +100,8 @@ import * as testData from 'testing/test-data';
 //     component.operation = 'CREATE';
 //     component.missionId = testData.TEST_MISSION_ID.toString();
 //     const testRocket = testData.TEST_MISSIONS[0].rockets[0];
-//     component.unasignedRocketForm.controls['name'].setValue(testRocket.name);
-//     component.unasignedRocketForm.controls['rocketStatus'].setValue(testRocket.rocketStatus);
+//     component.unassignedRocketForm.controls['name'].setValue(testRocket.name);
+//     component.unassignedRocketForm.controls['rocketStatus'].setValue(testRocket.rocketStatus);
 //     // WHEN
 //     component.onSubmit();
 //     // THEN
@@ -130,8 +130,8 @@ import * as testData from 'testing/test-data';
 //     expect(component.operation).toBe('UPDATE');
 //     expect(component.formTitle).toBe('Update Rocket');
 //     expect(component.buttonLabel).toBe('Update');
-//     expect(component.unasignedRocketForm.get('name')?.value).toBe(testRocket.name);
-//     expect(component.unasignedRocketForm.get('rocketStatus')?.value).toBe(testRocket.rocketStatus);
+//     expect(component.unassignedRocketForm.get('name')?.value).toBe(testRocket.name);
+//     expect(component.unassignedRocketForm.get('rocketStatus')?.value).toBe(testRocket.rocketStatus);
 //   });
 
 //   /**
@@ -144,9 +144,9 @@ import * as testData from 'testing/test-data';
 //     component.missionId = testData.TEST_MISSION_ID.toString();
 //     component.id = testData.TEST_ROCKET_ID.toString();
 //     const testRocket = testData.TEST_MISSIONS[0].rockets[0];
-//     component.unasignedRocketForm.controls.missionId.setValue(testRocket.missionId.toString());
-//     component.unasignedRocketForm.controls.name.setValue(testRocket.name);
-//     component.unasignedRocketForm.controls.rocketStatus.setValue(testRocket.rocketStatus);
+//     component.unassignedRocketForm.controls.missionId.setValue(testRocket.missionId.toString());
+//     component.unassignedRocketForm.controls.name.setValue(testRocket.name);
+//     component.unassignedRocketForm.controls.rocketStatus.setValue(testRocket.rocketStatus);
 //     // WHEN
 //     component.onSubmit();
 //     // THEN
@@ -182,13 +182,13 @@ import * as testData from 'testing/test-data';
 //     // GIVEN
 //     const router = component['router'];
 //     const route = TestBed.inject(ActivatedRoute);
-//     spyOn(component.unasignedRocketForm, 'reset');
+//     spyOn(component.unassignedRocketForm, 'reset');
 //     spyOn(router, 'navigate');
 //     component.missionId = testData.TEST_MISSION_ID.toString();
 //     // WHEN
 //     component.onCancel();
 //     // THEN
-//     expect(component.unasignedRocketForm.reset).toHaveBeenCalled();
+//     expect(component.unassignedRocketForm.reset).toHaveBeenCalled();
 //     expect(router.navigate).toHaveBeenCalledWith(
 //       ['/rocket-table', testData.TEST_MISSION_ID.toString()],
 //       { relativeTo: route }
@@ -200,13 +200,13 @@ import * as testData from 'testing/test-data';
 //    */
 //   it('should be invalid if required fields are missing', () => {
 //     // GIVEN
-//     component.unasignedRocketForm.reset();
+//     component.unassignedRocketForm.reset();
 //     // WHEN
 //     const testRocket = testData.TEST_MISSIONS[0].rockets[0];
-//     component.unasignedRocketForm.controls['name'].setValue(testRocket.name);
-//     component.unasignedRocketForm.controls['rocketStatus'].setValue(testRocket.rocketStatus);
+//     component.unassignedRocketForm.controls['name'].setValue(testRocket.name);
+//     component.unassignedRocketForm.controls['rocketStatus'].setValue(testRocket.rocketStatus);
 //     // THEN
-//     expect(component.unasignedRocketForm.valid).toBeTrue();
+//     expect(component.unassignedRocketForm.valid).toBeTrue();
 //   });
 
 //   /**
@@ -214,12 +214,12 @@ import * as testData from 'testing/test-data';
 //    */
 //   it('should be invalid if required fields are missing', () => {
 //     // GIVEN
-//     component.unasignedRocketForm.reset();
+//     component.unassignedRocketForm.reset();
 //     // WHEN
-//     component.unasignedRocketForm.controls['name'].setValue('');
-//     component.unasignedRocketForm.controls['rocketStatus'].setValue(null);
+//     component.unassignedRocketForm.controls['name'].setValue('');
+//     component.unassignedRocketForm.controls['rocketStatus'].setValue(null);
 //     // THEN
-//     expect(component.unasignedRocketForm.valid).toBeFalse();
+//     expect(component.unassignedRocketForm.valid).toBeFalse();
 //   });
 
 // });

@@ -11,14 +11,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { RocketStatus } from 'models/rocket-status';
 import { RocketPoolService } from 'services/rocket-pool-service/rocket-pool.service';
 /**
- * RocketFormComponent is an Angular component that provides a form for creating the unasigned rocket.
+ * RocketFormComponent is an Angular component that provides a form for creating the unassigned rocket.
  * It uses Angular Material components for UI elements and Reactive Forms for form handling.
  * This component is part of the forms module and is used to manage rocket-related forms.
  */
 @Component({
   selector: 'app-rocket-form',
-  templateUrl: './unasigned-rocket-form.component.html',
-  styleUrl: './unasigned-rocket-form.component.css',
+  templateUrl: './unassigned-rocket-form.component.html',
+  styleUrl: './unassigned-rocket-form.component.css',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -30,14 +30,14 @@ import { RocketPoolService } from 'services/rocket-pool-service/rocket-pool.serv
     MatSelectModule,
   ],
 })
-export class UnasignedRocketFormComponent implements OnInit {
+export class UnassignedRocketFormComponent implements OnInit {
   public rocketPoolService = inject(RocketPoolService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private formBuilder = inject(FormBuilder);
 
   rocketStatuses: RocketStatus[] = [RocketStatus.OnGround, RocketStatus.InSpace, RocketStatus.InRepair];
-  unasignedRocketForm = this.formBuilder.group({
+  unassignedRocketForm = this.formBuilder.group({
     name: ['', Validators.required],
   });
   formTitle = '';
@@ -47,20 +47,20 @@ export class UnasignedRocketFormComponent implements OnInit {
    * Runs once after Angular has initialized all the component's inputs.
    */
   ngOnInit() {
-    this.formTitle = 'Create Unasigned Rocket';
+    this.formTitle = 'Create Unassigned Rocket';
     this.buttonLabel = 'Create';
-    this.unasignedRocketForm.controls.name.setValue('');
-    console.log('🟢UnasignedRocketFormComponent.ngOnInit():');
+    this.unassignedRocketForm.controls.name.setValue('');
+    console.log('🟢UnassignedRocketFormComponent.ngOnInit():');
   }
   /**
    * The submit action handler.
    * It creates, updates, or deletes an rocket based on the operation type.
    */
   onSubmit() {
-    const name = this.unasignedRocketForm.get('name')?.value ?? '';
-    this.rocketPoolService.createUnasignedRocket(name);
+    const name = this.unassignedRocketForm.get('name')?.value ?? '';
+    this.rocketPoolService.createUnassignedRocket(name);
     console.log(
-      '🟢UnasignedRocketFormComponent.onSubmit(): CREATE, name[%s]', name
+      '🟢UnassignedRocketFormComponent.onSubmit(): CREATE, name[%s]', name
     );
     this.router.navigate(['/transfer'], {
       relativeTo: this.route,
@@ -71,8 +71,8 @@ export class UnasignedRocketFormComponent implements OnInit {
    * It resets the form and navigates back to the rocket table.
    */
   onCancel() {
-    this.unasignedRocketForm.reset();
-    console.log('🟢UnasignedRocketFormComponent.onCancel():');
+    this.unassignedRocketForm.reset();
+    console.log('🟢UnassignedRocketFormComponent.onCancel():');
     this.router.navigate(['/transfer'], {
       relativeTo: this.route,
     });

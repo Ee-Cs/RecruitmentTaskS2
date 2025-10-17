@@ -57,12 +57,12 @@ export class RocketPoolService {
     this.storage.setItem('rockets', json);
   }
   /**
-   * Creates the unasigned the rocket.
+   * Creates the unassigned the rocket.
    *
    * @param name the rocket name
    * @returns void
    */
-  createUnasignedRocket(name: string) {
+  createUnassignedRocket(name: string) {
     const rocket: Rocket = {
       id: this.getNextRocketId(),
       missionId: 0,

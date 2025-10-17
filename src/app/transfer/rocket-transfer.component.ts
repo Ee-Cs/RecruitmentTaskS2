@@ -87,7 +87,7 @@ export class RocketTransferComponent implements OnInit {
    */
   createRocket() {
     this.router.navigate(
-      ['/unasigned-rocket-form'],
+      ['/unassigned-rocket-form'],
       {
         relativeTo: this.route,
       }
