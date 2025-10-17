@@ -214,7 +214,7 @@ SPC <.-> REP
 </details>
 
 <details>
-<summary>Checking Github README creation with Markdown</summary>
+<summary>Learning GitHub Flavored Markdown</summary>
 
 :warning:
 :zero:
@@ -229,19 +229,90 @@ SPC <.-> REP
 :nine:
 :ten:
 
+0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟
+
+Hard line break - add \ or two spaces at the end of line  
+Styles are Not working in GitHub  
+<span style="color:red">red</span>  
+<span style="color:green">green</span>  
+<span style="color:blue">blue</span>  
+<span style="color:cyan">cyan</span>  
+<span style="color:magenta">magenta</span>  
+<span style="color:yellow">yellow</span>  
+<span style="color:orange">orange</span>  
+<span style="color:brown">brown</span>  
+<span style="color:gray">gray</span>  
+
 </details>
 
-<span style="color:red">red</span> <br>
-<span style="color:green">green</span><br>
-<span style="color:blue">blue</span><br>
-<span style="color:cyan">cyan</span><br>
-<span style="color:magenta">magenta</span><br>
-<span style="color:yellow">yellow</span><br>
-<span style="color:orange">orange</span><br>
-<span style="color:brown">brown</span><br>
-<span style="color:gray">gray</span><br>
 
+> # Foo
+> bar
+> baz
 
-<span style="color:red">red</span>.
-<span style="color:green">green</span>.
-<span style="color:blue">blue</span>.
+~~~~    ruby startline=3 $%@#$
+def foo(x)
+  return 3
+end
+~~~~~~~
+
+```geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "ID": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+              [52.25,21.00],
+              [52.50,21.00],
+              [52.50,21.25],
+              [52.25,21.25]
+          ]
+        ]
+      }
+    }
+  ]
+}
+```
+
+```topojson
+{
+  "type": "Topology",
+  "transform": {
+    "scale": [0.0005000500050005, 0.00010001000100010001],
+    "translate": [100, 0]
+  },
+  "objects": {
+    "example": {
+      "type": "GeometryCollection",
+      "geometries": [
+        {
+          "type": "Point",
+          "properties": {"prop0": "value0"},
+          "coordinates": [4000, 5000]
+        },
+        {
+          "type": "LineString",
+          "properties": {"prop0": "value0", "prop1": 0},
+          "arcs": [0]
+        },
+        {
+          "type": "Polygon",
+          "properties": {"prop0": "value0",
+            "prop1": {"this": "that"}
+          },
+          "arcs": [[1]]
+        }
+      ]
+    }
+  },
+  "arcs": [[[4000, 0], [1999, 9999], [2000, -9999], [2000, 9999]],[[0, 0], [0, 9999], [2000, 0], [0, -9999], [-2000, 0]]]
+}
+```
