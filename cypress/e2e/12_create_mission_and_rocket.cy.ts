@@ -24,6 +24,7 @@ describe('Create mission and rocket', () => {
     cy.contains('mat-radio-button', 'Empty').click();
     cy.get('input[type="radio"][value="E"]').should('be.checked');
     cy.contains('button', 'Load data set').should('not.be.disabled').click();
+    cy.screenshot(`1_home`);
     cy.get('button').contains('Menu').click();
     cy.get('button').contains('⏵⏵⏵').click();
     cy.get('button').contains('Manage Missions').click();
@@ -32,7 +33,7 @@ describe('Create mission and rocket', () => {
       */
     cy.contains('Missions').should('be.visible');
     cy.get('table tbody tr').should('have.length', 0);
-    cy.screenshot(`1_list_missions_before_create`);
+    cy.screenshot(`2_list_missions_before_create`);
     cy.contains('Create Mission').click();
     /*
       * Page "Create Mission"
@@ -40,13 +41,13 @@ describe('Create mission and rocket', () => {
       */
     cy.contains('Create Mission').should('be.visible');
     cy.get('input[formcontrolname="name"]').clear().type(MISSION_CREATED_NAME);
-    cy.screenshot(`2_create_mission`);
+    cy.screenshot(`3_create_mission`);
     cy.get('button').contains('Create').click();
     /*
       * Page "Manage Missions"
       */
     cy.contains('Missions').should('be.visible');
-    cy.screenshot(`3_list_missions_after_create`);
+    cy.screenshot(`4_list_missions_after_create`);
     cy.get('table').within(() => {
       cy.get('tr').contains(MISSION_CREATED_NAME).parent().contains('Manage Rockets').click();
     });
@@ -55,14 +56,14 @@ describe('Create mission and rocket', () => {
       */
     cy.contains('Missions').should('be.visible');
     cy.contains(MISSION_CREATED_NAME).should('be.visible');
-    cy.screenshot(`4_list_rockets_before_create`);
+    cy.screenshot(`5_list_rockets_before_create`);
     cy.get('button').contains('Create').click();
     /*
       * Page "Create Rocket"
       * It should create new rocket.
       */
     cy.get('input[formcontrolname="name"]').clear().type(ROCKET_CREATED_NAME);
-    cy.screenshot(`5_create_rocket`);
+    cy.screenshot(`6_create_rocket`);
     cy.get('button').contains('Create').click();
     /*
       * Page "Manage Rockets"
@@ -74,7 +75,7 @@ describe('Create mission and rocket', () => {
     cy.get('table').within(() => {
       cy.get('tr').contains(ROCKET_CREATED_NAME).should('be.visible');
     });
-    cy.screenshot(`6_list_rockets_after_create`);
+    cy.screenshot(`7_list_rockets_after_create`);
     /*
       * Page "Home".
       * It should navigate back to Home and verify radio selection.
@@ -88,6 +89,6 @@ describe('Create mission and rocket', () => {
     cy.contains('mat-radio-button', 'Standard').click();
     cy.get('input[type="radio"][value="S"]').should('be.checked');
     cy.contains('button', 'Load data set').should('not.be.disabled').click();
-    cy.screenshot(`7_home`);
+    cy.screenshot(`8_home`);
   });
 });
