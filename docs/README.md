@@ -19,6 +19,7 @@ Angular 20 + Angular Material application using an in-memory store.
   </tr>
 </table>
 
+---
 
 ## Business Logic
 ```mermaid
@@ -81,9 +82,10 @@ SPC <.-> REP
   classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
   classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 ```
+---
 
 ## Description of the business logic
-- When the "Home" page is selected:
+1. When the "Home" page is selected:
   - The chosen data set is loaded.
   - Four data sets are available:
     - Standard
@@ -102,7 +104,7 @@ SPC <.-> REP
   - The selected data set is saved to local storage.
   - The previously saved data set is overwritten.
 
-- When the "Manage Missions" page is selected:
+2. When the "Manage Missions" page is selected:
   - Create, read, update, and delete operations for missions.
   - For each mission: create, read, update, and delete operations for rockets.
   - Implemented features:
@@ -111,7 +113,7 @@ SPC <.-> REP
     - Default pagination: 5 records per page.
     - Sorting by name or status.
 
-- When the "Transfer Rockets" page is selected:
+3. When the "Transfer Rockets" page is selected:
   - The right pane shows unassigned rockets (the rocket pool).
   - The left pane shows rockets of the selected mission that are not in space.
   - Create an unassigned rocket with status "On Ground".
@@ -119,17 +121,21 @@ SPC <.-> REP
   - Assign rockets from the rocket pool to the selected mission.
   - Unassign rockets from the selected mission and transfer them to the rocket pool.
 
-- When the "Create PDF Reports" page is selected:
+4. When the "Create PDF Reports" page is selected:
   - The application generates a PDF report.
   - The generated file can be opened, downloaded, or printed.
   - The "Missions and Rockets Report" provides a summary of missions.
   - Missions in the report are sorted by the number of rockets assigned.
   - Each mission entry shows the mission status and all rockets assigned to that mission.
 
+---
+
 ## Testing
 - Unit tests for components and services.
 - End-to-end (integration) tests using Cypress.
 - Live demo with multiple data sets.
+
+---
 
 ## Development
 <details>
@@ -143,3 +149,69 @@ SPC <.-> REP
 - Rockets must not be assigned to missions with status "Ended"; rockets may only be unassigned from such missions.
 
 </details>
+
+<details>
+<summary>Managing unassigned rockets in rocket pool</summary>
+
+| Action | Expected | Actual  |
+|--------|--------------------|
+| create | ✅ Yes   | ✅ Yes |
+| update | ✅ Yes   | ❌ No  |
+| read   | ✅ Yes   | ✅ Yes |
+| delete | ✅ Yes   | ❌ No  |
+
+</details>
+
+Add a blockchain for missions and rockets management.
+Add a business process model and a decision model for missions and rockets workflow.
+
+<details>
+<summary>Mission object definition</summary>
+
+- [x] id
+- [x] name
+- [ ] description
+- [x] assigned rockets
+- [ ] creation date
+- [ ] created by user
+- [ ] updating date
+- [ ] updated by user
+- [ ] assign date
+- [ ] assigned by user
+- [ ] unassign date
+- [ ] unassigned by user
+- [ ] delete date
+- [ ] deleted by user
+
+</details>
+
+:warning:
+
+:one:
+
+<span style="color:red">red</span>.
+<span style="color:green">green</span>.
+<span style="color:blue">blue</span>.
+
+to highlight these ==very important words==
+
+<mark>very important words</mark>.
+
+```json
+{
+  'missions': [
+    {
+      'id': 1,
+      'name': 'Moon',
+      'missionStatus': MissionStatus.InProgress,
+      'rockets': [
+        {
+          'id': 11,
+          'name': 'Apollo',
+          'rocketStatus': RocketStatus.OnGround
+        }
+      ]
+    }
+  ]
+}
+```
