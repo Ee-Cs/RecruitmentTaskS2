@@ -50,7 +50,8 @@ title: Mission State Diagram
 ---
 stateDiagram
 direction LR
-%% State Definitions
+
+%% State definitions
 state "Scheduled" as SCH
 state CHO <<choice>>
 state "In Progress" as PRG
@@ -70,7 +71,7 @@ PND --> PRG : rocket fixed
 PRG --> END : rockets unassigned
 END --> [*]
 
-%% Style Definitions
+%% Style definitions
 classDef schedClass fill: plum, stroke: #000, stroke-width: 2px
 classDef progClass fill: lime, stroke: #000, stroke-width: 2px,font-weight:bold
 classDef pendClass fill: gold, stroke: #000, stroke-width: 2px, font-style:italic,stroke-width:2px,stroke:red
@@ -78,26 +79,27 @@ classDef endClass fill: peru, stroke: #000, stroke-width: 2px
 ```
 ## Rocket Statuses
 ```mermaid
-flowchart LR
 ---
 title: Rocket Flowchart
 ---
+flowchart LR
 
-%% 
+%% Node definitions
 GND(On Ground):::yellowBox
 SPC(In Space):::greenBox
 REP((In Repair)):::redBox
 
+%% Flows
 subgraph "Mission in Progress"
   GND <--> SPC
 end
 GND <.-> REP
 SPC <.-> REP
 
-%% Style Definitions
-  classDef redBox fill: #ff6666, stroke: #000, stroke-width: 2px
-  classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
-  classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
+%% Style definitions
+classDef redBox fill: #ff6666, stroke: #000, stroke-width: 2px
+classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
+classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 ```
 ---
 
