@@ -301,7 +301,7 @@ describe('RocketTransferComponent', () => {
       sourceRockets,
       targetRockets,
     }) =>
-      xit(testName, async () => {
+      it(testName, async () => {
         // GIVEN
         fixture.detectChanges();
         await fixture.whenStable();

@@ -260,10 +260,10 @@ classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 <summary>Proposed enhancements</summary>
 
 Replace in-memory store with appropriate database. \
-Refactor application logging.  
-Add authorization and authentication.  
-Add a business process model and a decision model for missions and rockets workflow.  
-Add a blockchain for missions and rockets management.  
+Refactor application logging. \
+Add authorization and authentication. \
+Add a business process model and a decision model for missions and rockets workflow. \
+Add a blockchain for missions and rockets management. \
 Switch to nanoservices on cloud platform.
 </details>
 
