@@ -21,8 +21,11 @@ Angular 20 + Angular Material application using an in-memory store.
 
 ---
 
-## Business Logic
+## Architecture
 ```mermaid
+---
+title: Business Logic
+---
 flowchart LR
   HOME(Home):::orangeBox
   MNG_MIS(Manage Missions):::redBox
@@ -43,7 +46,6 @@ flowchart LR
   classDef orangeBox  fill: #ffa500,stroke: #000, stroke-width:2px
 ```
 
-## Models
 ```mermaid
 ---
 title: Models Class Diagram
@@ -83,7 +85,6 @@ MissionStatus <|.. Mission : missionStatus
 RocketStatus <|.. Rocket : rocketStatus
 ```
 
-## Mission Statuses
 ```mermaid
 ---
 title: Mission State Diagram
@@ -113,11 +114,11 @@ END --> [*]
 
 %% Style definitions
 classDef schedClass fill: plum, stroke: #000, stroke-width: 2px
-classDef progClass fill: lime, stroke: #000, stroke-width: 2px,font-weight:bold
-classDef pendClass fill: gold, stroke: #000, stroke-width: 2px, font-style:italic,stroke-width:2px,stroke:red
+classDef progClass fill: green, stroke: #000, stroke-width: 2px,font-weight:bold
+classDef pendClass fill: yellow, stroke: #000, stroke-width: 2px, font-style:italic,stroke-width:2px,stroke:red
 classDef endClass fill: peru, stroke: #000, stroke-width: 2px
 ```
-## Rocket Statuses
+
 ```mermaid
 ---
 title: Rocket Flowchart
