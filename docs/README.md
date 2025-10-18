@@ -43,6 +43,46 @@ flowchart LR
   classDef orangeBox  fill: #ffa500,stroke: #000, stroke-width:2px
 ```
 
+## Models
+```mermaid
+---
+title: Models Class Diagram
+---
+classDiagram
+class Mission {
+  +number id
+  +string name
+  +MissionStatus missionStatus
+  +Rocket[] rockets
+}
+
+class Rocket {
+  +number id
+  +number missionId
+  +string name
+  +RocketStatus rocketStatus
+}
+
+class MissionStatus {
+  <<enumeration>>
+  +Scheduled = "🟣 Scheduled"
+  +Pending = "🟡 Pending"
+  +InProgress = "🟢 In Progress"
+  +Ended = "🟤 Ended"
+}
+
+class RocketStatus {
+  <<enumeration>>
+  +OnGround = "🟨 On Ground"
+  +InSpace = "🟩 In Space"
+  +InRepair = "🟥 In Repair"
+}
+
+Mission "1" o-- "*" Rocket : rockets
+MissionStatus <|.. Mission : missionStatus
+RocketStatus <|.. Rocket : rocketStatus
+```
+
 ## Mission Statuses
 ```mermaid
 ---
@@ -101,6 +141,7 @@ classDef redBox fill: #ff6666, stroke: #000, stroke-width: 2px
 classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
 classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 ```
+
 ---
 
 <details>
