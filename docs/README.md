@@ -49,7 +49,7 @@ flowchart LR
 title: Mission State Diagram
 ---
 stateDiagram
-direction TD
+direction TB
 
 %% State definitions
 state "Scheduled" as SCH
