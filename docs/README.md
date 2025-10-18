@@ -258,7 +258,8 @@ classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 
 <details>
 <summary>Proposed enhancements</summary>
-Replace in-memory store with appropriate database.  
+
+Replace in-memory store with appropriate database. \
 Refactor application logging.  
 Add authorization and authentication.  
 Add a business process model and a decision model for missions and rockets workflow.  
