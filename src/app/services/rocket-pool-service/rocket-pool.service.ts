@@ -14,10 +14,9 @@ export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
   factory: () => localStorage,
 });
 /**
- * Service for managing missions.
- * This service provides methods to create, read, update, and delete missions.
- * It uses local storage to persist mission data across sessions.
- * It also interacts with the RocketService to manage rockets associated with missions.
+ * Service for managing rocket pool.
+ * This service provides methods to create, and read rockets.
+ * It uses local storage to persist rocket data across sessions.
  */
 @Injectable({
   providedIn: 'root',

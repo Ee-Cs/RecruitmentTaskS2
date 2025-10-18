@@ -26,7 +26,7 @@ export const TEST_MISSIONS: Mission[] = [
       id: 2,
       missionId: 2,
       name: 'Dragon XL',
-      rocketStatus: RocketStatus.InSpace,
+      rocketStatus: RocketStatus.OnGround,
     }],
   },
 ];
@@ -59,16 +59,26 @@ export const TEST_ROCKET_ID = TEST_MISSIONS[0].rockets[0].id;
 /**
  * Test rocket name.
  */
-export const TEST_ROCKET_NAME = `${TEST_MISSIONS[0].rockets[0].name}`;
+export const TEST_ROCKET_NAME = TEST_MISSIONS[0].rockets[0].name;
 /**
- * Test rockets transferred to the left.
+ * Test rockets in pool after assignment.
  */
-export const TEST_ROCKETS_ASSIGNED: Rocket[] = [
-  TEST_MISSIONS[0].rockets[0], TEST_ROCKET_POOL[0],
+export const TEST_ROCKETS_IN_POOL_AFTER_ASSIGNMENT: Rocket[] = [
+  TEST_ROCKET_POOL[1]
 ];
 /**
- * Test rockets transferred to the right.
+ * Test rockets in mission after assignment.
  */
-export const TEST_ROCKETS_UNASSIGNED: Rocket[] = [
-  TEST_MISSIONS[0].rockets[0], TEST_MISSIONS[1].rockets[0],
+export const TEST_ROCKETS_IN_MISSION_AFTER_ASSIGNMENT: Rocket[] = [
+  TEST_MISSIONS[0].rockets[0], TEST_ROCKET_POOL[0]
 ];
+/**
+ * Test rockets in pool after unassignment.
+ */
+export const TEST_ROCKETS_IN_POOL_AFTER_UNASSIGNMENT: Rocket[] = [
+  TEST_ROCKET_POOL[0], TEST_ROCKET_POOL[1], TEST_MISSIONS[0].rockets[0]
+];
+/**
+ * Test rockets in mission after unassignment.
+ */
+export const TEST_ROCKETS_IN_MISSION_AFTER_UNASSIGNMENT: Rocket[] = [];

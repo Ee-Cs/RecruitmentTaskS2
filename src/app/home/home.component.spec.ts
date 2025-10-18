@@ -56,7 +56,7 @@ describe('HomeComponent', () => {
     expect(compiled.textContent).toContain('Home');
     expect(compiled.textContent).toContain('Dataset');
     expect(compiled.textContent).toContain('Standard');
-    expect(compiled.textContent).toContain('Big');
+    expect(compiled.textContent).toContain('Large Scale');
     expect(compiled.textContent).toContain('Empty');
   });
 });

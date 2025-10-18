@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { MissionService } from '../mission-service/mission.service';
 import { RocketPoolService } from './rocket-pool.service';
-import { TEST_MISSIONS, TEST_MISSION_ID, TEST_ROCKET_POOL, TEST_ROCKET_ID } from 'testing/test-data';
+import { TEST_MISSIONS, TEST_MISSION_ID, TEST_ROCKET_POOL } from 'testing/test-data';
 /**
  * Unit tests for the {@link RocketPoolService}.
  *
@@ -57,7 +57,7 @@ describe('RocketPoolService', () => {
     rocketPoolService.createUnassignedRocket(testRocketName);
     // THEN
     const actualRocketPool = rocketPoolService.getRockets();
-    TEST_ROCKET_POOL.forEach(rocket => {
+    TEST_ROCKET_POOL.forEach(() => {
       expect(actualRocketPool?.find(roc => roc.name === testRocketName)).toBeDefined();
     });
   });

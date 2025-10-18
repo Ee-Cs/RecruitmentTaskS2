@@ -198,7 +198,7 @@ describe('RocketFormComponent', () => {
   /**
    * Test form validation: should be valid if required fields are present.
    */
-  it('should be invalid if required fields are missing', () => {
+  it('should be valid if required fields are present', () => {
     // GIVEN
     component.rocketForm.reset();
     // WHEN

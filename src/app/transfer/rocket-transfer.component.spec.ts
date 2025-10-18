@@ -35,31 +35,27 @@ missionServiceSpy.getMissions.and
 const rocketServiceSpy = jasmine.createSpyObj('RocketService', ['getRockets']);
 rocketServiceSpy.getRockets.and
   .callFake((missionId: number): Rocket[] => {
-    if (doneTransferFromLeftToRight) {
-      if (missionId == testData.TEST_MISSIONS[0].id) {
-        return [];
+    if (missionId == testData.TEST_MISSIONS[0].id) {
+      if (doneTransferFromLeftToRight) {
+        return [...testData.TEST_ROCKETS_IN_MISSION_AFTER_ASSIGNMENT];
+      } else if (doneTransferFromRightToLeft) {
+        return [...testData.TEST_ROCKETS_IN_MISSION_AFTER_UNASSIGNMENT];
       } else {
-        return testData.TEST_ROCKETS_ASSIGNED;
-      }
-    } else if (doneTransferFromRightToLeft) {
-        return [];
-    } else {
-      if (missionId == testData.TEST_MISSIONS[0].id) {
         return [...testData.TEST_MISSIONS[0].rockets];
-      } else {
-        return [...testData.TEST_MISSIONS[1].rockets];
       }
+    } else {
+      return [...testData.TEST_MISSIONS[1].rockets];
     }
   });
 const rocketPoolServiceSpy = jasmine.createSpyObj('RocketPoolService', ['getRockets', 'transferRockets']);
 rocketPoolServiceSpy.getRockets.and
   .callFake((): Rocket[] => {
     if (doneTransferFromLeftToRight) {
-        return [];
+      return [...testData.TEST_ROCKETS_IN_POOL_AFTER_ASSIGNMENT];
     } else if (doneTransferFromRightToLeft) {
-        return testData.TEST_ROCKETS_UNASSIGNED;
+      return [...testData.TEST_ROCKETS_IN_POOL_AFTER_UNASSIGNMENT];
     } else {
-        return [...testData.TEST_ROCKET_POOL];
+      return [...testData.TEST_ROCKET_POOL];
     }
   });
 /**
@@ -110,7 +106,7 @@ describe('RocketTransferComponent', () => {
    * Tests that the RocketTransferComponent compiles successfully.
    * This is a basic test to ensure that the component can be created without errors.
    */
-  xit('should compile', () => {
+  it('should compile', () => {
     // GIVEN
     // WHEN
     // THEN
@@ -120,7 +116,7 @@ describe('RocketTransferComponent', () => {
   /**
    * Tests that  the mission dropdowns are populated.
    */
-  xit('should populate mission dropdowns', async () => {
+  it('should populate mission dropdowns', async () => {
     // GIVEN
     fixture.detectChanges();
     await fixture.whenStable();
@@ -141,7 +137,7 @@ describe('RocketTransferComponent', () => {
   /**
    * Tests that the rocket tables for left side are rendered.
    */
-  xit('should render left rocket tables', async () => {
+  it('should render left rocket tables', async () => {
     // GIVEN
     fixture.detectChanges();
     await fixture.whenStable();
@@ -161,77 +157,77 @@ describe('RocketTransferComponent', () => {
   /**
    * Tests that the rocket tables for right side are rendered.
    */
-  xit('should render right rocket tables', async () => {
-      // GIVEN
-      fixture.detectChanges();
-      await fixture.whenStable();
-      // WHEN
-      const tables = fixture.debugElement.queryAll(By.css('table.rocket-table'));
-      // THEN
-      expect(tables.length).toBe(1);
-      // WHEN
-      const rows = tables[0].queryAll(By.css('td'));
-      // THEN
-      expect(rows.length).toBe(3);
-      const testRocket = testData.TEST_MISSIONS[0].rockets[0];
-      expect(rows[1].nativeElement.textContent).toContain(testRocket.id);
-      expect(rows[2].nativeElement.textContent).toContain(testRocket.name);
-      console.log('should render right rocket tables');
-    });
-    /**
-     * Tests that the selection for a row and update checkbox are toggled.
-     */
-    xit('should toggle selection for a left side row and update checkbox', async () => {
-      // GIVEN
-      fixture.detectChanges();
-      await fixture.whenStable();
-      // WHEN
-      const tables = fixture.debugElement.queryAll(By.css('table.rocket-pool-table'));
-      const checkbox = tables[0].query(By.css('td'));
-      const selection = component.leftSideSelection;
-      // THEN
-      expect(selection.selected.length).toBe(0);
-      // WHEN
-      checkbox.nativeElement.click();
-      fixture.detectChanges();
-      await fixture.whenStable();
-      // THEN
-      expect(selection.selected.length).toBe(1);
-      // WHEN
-      checkbox.nativeElement.click();
-      fixture.detectChanges();
-      await fixture.whenStable();
-      // THEN
-      expect(selection.selected.length).toBe(0);
-      console.log('should toggle selection for a left side row and update checkbox');
-    });
-    /**
-     * Tests that the selection for a row and update checkbox are toggled.
-     */
-    xit('should toggle selection for a right side row and update checkbox', async () => {
-      // GIVEN
-      fixture.detectChanges();
-      await fixture.whenStable();
-      // WHEN
-      const tables = fixture.debugElement.queryAll(By.css('table.rocket-table'));
-      const checkbox = tables[0].query(By.css('td'));
-      const selection = component.rightSideSelection;
-      // THEN
-      expect(selection.selected.length).toBe(0);
-      // WHEN
-      checkbox.nativeElement.click();
-      fixture.detectChanges();
-      await fixture.whenStable();
-      // THEN
-      expect(selection.selected.length).toBe(1);
-      // WHEN
-      checkbox.nativeElement.click();
-      fixture.detectChanges();
-      await fixture.whenStable();
-      // THEN
-      expect(selection.selected.length).toBe(0);
-      console.log('should toggle selection for a right side row and update checkbox');
-    });
+  it('should render right rocket tables', async () => {
+    // GIVEN
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // WHEN
+    const tables = fixture.debugElement.queryAll(By.css('table.rocket-table'));
+    // THEN
+    expect(tables.length).toBe(1);
+    // WHEN
+    const rows = tables[0].queryAll(By.css('td'));
+    // THEN
+    expect(rows.length).toBe(3);
+    const testRocket = testData.TEST_MISSIONS[0].rockets[0];
+    expect(rows[1].nativeElement.textContent).toContain(testRocket.id);
+    expect(rows[2].nativeElement.textContent).toContain(testRocket.name);
+    console.log('should render right rocket tables');
+  });
+  /**
+   * Tests that the selection for a row and update checkbox are toggled.
+   */
+  it('should toggle selection for a left side row and update checkbox', async () => {
+    // GIVEN
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // WHEN
+    const tables = fixture.debugElement.queryAll(By.css('table.rocket-pool-table'));
+    const checkbox = tables[0].query(By.css('td'));
+    const selection = component.leftSideSelection;
+    // THEN
+    expect(selection.selected.length).toBe(0);
+    // WHEN
+    checkbox.nativeElement.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // THEN
+    expect(selection.selected.length).toBe(1);
+    // WHEN
+    checkbox.nativeElement.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // THEN
+    expect(selection.selected.length).toBe(0);
+    console.log('should toggle selection for a left side row and update checkbox');
+  });
+  /**
+   * Tests that the selection for a row and update checkbox are toggled.
+   */
+  it('should toggle selection for a right side row and update checkbox', async () => {
+    // GIVEN
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // WHEN
+    const tables = fixture.debugElement.queryAll(By.css('table.rocket-table'));
+    const checkbox = tables[0].query(By.css('td'));
+    const selection = component.rightSideSelection;
+    // THEN
+    expect(selection.selected.length).toBe(0);
+    // WHEN
+    checkbox.nativeElement.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // THEN
+    expect(selection.selected.length).toBe(1);
+    // WHEN
+    checkbox.nativeElement.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // THEN
+    expect(selection.selected.length).toBe(0);
+    console.log('should toggle selection for a right side row and update checkbox');
+  });
   /**
    * Tests that all rows when header checkbox is clicked are toggled.
    */
@@ -247,7 +243,7 @@ describe('RocketTransferComponent', () => {
       getSelection: (component: RocketTransferComponent) => component.rightSideSelection,
     },
   ].forEach(({ testName, tableCssClass, getSelection }) =>
-    xit(testName, async () => {
+    it(testName, async () => {
       // GIVEN
       fixture.detectChanges();
       await fixture.whenStable();
@@ -319,117 +315,87 @@ describe('RocketTransferComponent', () => {
         console.log(testName);
       })
   );
-  // /**
-  //  * Tests that correct checkbox labels are provided.
-  //  */
-  // [
-  //   {
-  //     testName: 'should provide correct checkbox labels on the left side',
-  //     side: 'LEFT-SIDE',
-  //     getSelection: (component: RocketTransferComponent) => component.leftSideSelection,
-  //   },
-  //   {
-  //     testName: 'should provide correct checkbox labels on the right side',
-  //     side: 'RIGHT-SIDE',
-  //     getSelection: (component: RocketTransferComponent) => component.rightSideSelection,
-  //   },
-  // ].forEach(({ testName, side, getSelection }) =>
-  //   it(testName, async () => {
-  //     // GIVEN
-  //     fixture.detectChanges();
-  //     await fixture.whenStable();
-  //     const rocket = testData.TEST_MISSIONS[0].rockets[0]
-  //     expect(component.checkboxLabel(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE')).toContain('select');
-  //     // WHEN
-  //     getSelection(component).select(rocket);
-  //     // THEN
-  //     expect(component.checkboxLabel(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE', rocket)).toContain('deselect');
-  //     // WHEN
-  //     getSelection(component).clear();
-  //     // THEN
-  //     expect(component.checkboxLabel(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE', rocket)).toContain('select');
-  //     console.log(testName);
-  //   })
-  // );
-  // /**
-  //  * Tests that it correctly reports if all rows are selected.
-  //  */
-  // [
-  //   {
-  //     testName: 'should correctly report if all rows are selected on the left side',
-  //     side: 'LEFT-SIDE',
-  //     getSelection: (component: RocketTransferComponent) => component.leftSideSelection,
-  //     getRockets: () => testData.TEST_MISSIONS[0].rockets,
-  //   },
-  //   {
-  //     testName: 'should correctly report if all rows are selected on the right side',
-  //     side: 'RIGHT-SIDE',
-  //     getSelection: (component: RocketTransferComponent) => component.rightSideSelection,
-  //     getRockets: () => testData.TEST_MISSIONS[1].rockets,
-  //   },
-  // ].forEach(({ side, testName, getSelection, getRockets }) =>
-  //   it(testName, async () => {
-  //     // GIVEN
-  //     fixture.detectChanges();
-  //     await fixture.whenStable();
-  //     // WHEN
-  //     // THEN
-  //     expect(component.isAllSelected(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE')).toBeFalse();
-  //     // WHEN
-  //     getRockets().forEach(emp => getSelection(component).select(emp));
-  //     // THEN
-  //     expect(component.isAllSelected(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE')).toBeTrue();
-  //     console.log(testName);
-  //   })
-  // );
-  // /**
-  //  * Tests that rockets when mission selection changes (left/right) are updated.
-  //  */
-  // [
-  //   {
-  //     testName: 'should update rockets when mission selection changes on the left side',
-  //     side: 'LEFT-SIDE',
-  //     selectMissionId: testData.TEST_MISSIONS[1].id,
-  //     getRockets: () => testData.TEST_MISSIONS[1].rockets,
-  //     getRocketsBefore: () => testData.TEST_MISSIONS[0].rockets,
-  //     targetProp: (component: RocketTransferComponent) => component.leftSideRockets,
-  //   },
-  //   {
-  //     testName: 'should update rockets when mission selection changes on the right side',
-  //     side: 'RIGHT-SIDE',
-  //     selectMissionId: testData.TEST_MISSIONS[0].id,
-  //     getRockets: () => testData.TEST_MISSIONS[0].rockets,
-  //     getRocketsBefore: () => testData.TEST_MISSIONS[1].rockets,
-  //     targetProp: (component: RocketTransferComponent) => component.rightSideRockets,
-  //   },
-  // ].forEach(
-  //   ({
-  //     testName,
-  //     side,
-  //     selectMissionId,
-  //     getRockets,
-  //     getRocketsBefore,
-  //     targetProp,
-  //   }) =>
-  //     it(testName, fakeAsync(async () => {
-  //       // GIVEN
-  //       fixture.detectChanges();
-  //       await fixture.whenStable();
-  //       const beforeRocket = getRocketsBefore()[0];
-  //       // WHEN
-  //       // THEN
-  //       expect(targetProp(component)[0].id).toBe(beforeRocket.id);
-  //       component.selectMission(selectMissionId);
-  //       fixture.detectChanges();
-  //       await fixture.whenStable();
-  //       // WHEN
-  //       tick();
-  //       // THEN
-  //       expect(targetProp(component).length).toBe(1);
-  //       const afterRocket = getRockets()[0];
-  //       expect(targetProp(component)[0].id).toBe(afterRocket.id);
-  //       expect(targetProp(component)[0].name).toBe(afterRocket.name);
-  //       console.log(testName);
-  //     }))
-  // );
+  /**
+   * Tests that correct checkbox labels are provided.
+   */
+  [
+    {
+      testName: 'should provide correct checkbox labels on the left side',
+      side: 'LEFT-SIDE',
+      getSelection: (component: RocketTransferComponent) => component.leftSideSelection,
+    },
+    {
+      testName: 'should provide correct checkbox labels on the right side',
+      side: 'RIGHT-SIDE',
+      getSelection: (component: RocketTransferComponent) => component.rightSideSelection,
+    },
+  ].forEach(({ testName, side, getSelection }) =>
+    it(testName, async () => {
+      // GIVEN
+      fixture.detectChanges();
+      await fixture.whenStable();
+      const rocket = testData.TEST_MISSIONS[0].rockets[0]
+      expect(component.checkboxLabel(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE')).toContain('select');
+      // WHEN
+      getSelection(component).select(rocket);
+      // THEN
+      expect(component.checkboxLabel(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE', rocket)).toContain('deselect');
+      // WHEN
+      getSelection(component).clear();
+      // THEN
+      expect(component.checkboxLabel(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE', rocket)).toContain('select');
+      console.log(testName);
+    })
+  );
+  /**
+   * Tests that it correctly reports if all rows are selected.
+   */
+  [
+    {
+      testName: 'should correctly report if all rows are selected on the left side',
+      side: 'LEFT-SIDE',
+      getSelection: (component: RocketTransferComponent) => component.leftSideSelection,
+      getRockets: () => testData.TEST_ROCKET_POOL,
+    },
+    {
+      testName: 'should correctly report if all rows are selected on the right side',
+      side: 'RIGHT-SIDE',
+      getSelection: (component: RocketTransferComponent) => component.rightSideSelection,
+      getRockets: () => testData.TEST_MISSIONS[1].rockets,
+    },
+  ].forEach(({ side, testName, getSelection, getRockets }) =>
+    it(testName, async () => {
+      // GIVEN
+      fixture.detectChanges();
+      await fixture.whenStable();
+      // WHEN
+      // THEN
+      expect(component.isAllSelected(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE')).toBeFalse();
+      // WHEN
+      getRockets().forEach(emp => getSelection(component).select(emp));
+      // THEN
+      expect(component.isAllSelected(side === 'LEFT-SIDE' ? 'LEFT-SIDE' : 'RIGHT-SIDE')).toBeTrue();
+      console.log(testName);
+    })
+  );
+  /**
+   * Tests that rockets when mission selection changes are updated.
+   */
+  it('should update rockets when mission selection changes', fakeAsync(async () => {
+    // GIVEN
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // WHEN
+    // THEN
+    expect(component.rightSideRockets[0].id).toBe(testData.TEST_MISSIONS[0].rockets[0].id);
+    component.selectMission(testData.TEST_MISSIONS[1].id);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // WHEN
+    tick();
+    // THEN
+    expect(component.rightSideRockets.length).toBe(1);
+    expect(component.rightSideRockets[0].id).toBe(testData.TEST_MISSIONS[1].rockets[0].id);
+    console.log('should update rockets when mission selection changes');
+  }));
 });
