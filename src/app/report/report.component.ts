@@ -144,7 +144,7 @@ export class ReportComponent implements OnInit {
       if (rocketsA !== rocketsB) {
         return rocketsB - rocketsA;
       }
-      return b.name.localeCompare(a.name);
+      return a.name.localeCompare(b.name);
     });
 
     for (const mission of sortedMissions) {

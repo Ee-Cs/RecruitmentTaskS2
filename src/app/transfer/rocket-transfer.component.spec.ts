@@ -43,8 +43,10 @@ rocketServiceSpy.getRockets.and
       } else {
         return [...testData.TEST_MISSIONS[0].rockets];
       }
-    } else {
+    } if (missionId == testData.TEST_MISSIONS[1].id) {
       return [...testData.TEST_MISSIONS[1].rockets];
+    } else {
+      return [...testData.TEST_MISSIONS[2].rockets];
     }
   });
 const rocketPoolServiceSpy = jasmine.createSpyObj('RocketPoolService', ['getRockets', 'transferRockets']);
@@ -397,5 +399,24 @@ describe('RocketTransferComponent', () => {
     expect(component.rightSideRockets.length).toBe(1);
     expect(component.rightSideRockets[0].id).toBe(testData.TEST_MISSIONS[1].rockets[0].id);
     console.log('should update rockets when mission selection changes');
+  }));
+  /**
+   * Tests that rockets in space are absent for unassignment.
+   */
+  it('should not present rockets in space', fakeAsync(async () => {
+    // GIVEN
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // WHEN
+    // THEN
+    expect(component.rightSideRockets[0].id).toBe(testData.TEST_MISSIONS[0].rockets[0].id);
+    component.selectMission(testData.TEST_MISSIONS[2].id);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    // WHEN
+    tick();
+    // THEN
+    expect(component.rightSideRockets.length).toBe(0);
+    console.log('should not present rockets in space');
   }));
 });

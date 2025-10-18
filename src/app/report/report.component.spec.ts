@@ -118,13 +118,13 @@ describe('ReportComponent', () => {
     expect(tableActual[0][2].text).toBe('Number Of Rockets');
     expect(tableActual[0][3].text).toBe('Rocket');
 
-    for (let i = 0; i < 2; i++) {
-      const missionNameExpected = testData.TEST_MISSIONS[i].name;
+    // should be sorted by mission name
+    const missionExpected = [testData.TEST_MISSIONS[2], testData.TEST_MISSIONS[1], testData.TEST_MISSIONS[0]];
+    for (let i = 0; i < testData.TEST_MISSIONS.length; i++) {
       const missionNameActual = tableActual[i + 1][0].text;
-      expect(missionNameActual).toBe(missionNameExpected);
-      const rocketNameExpected = testData.TEST_MISSIONS[i].rockets[0].name;
+      expect(missionNameActual).toBe(missionExpected[i].name);
       const rocketNameActual = tableActual[i + 1][3];
-      expect(rocketNameActual).toBe(rocketNameExpected);
+      expect(rocketNameActual).toBe(missionExpected[i].rockets[0].name);
     }
   });
 });

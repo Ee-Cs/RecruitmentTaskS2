@@ -9,10 +9,10 @@ import { Rocket } from 'models/rocket';
 export const TEST_MISSIONS: Mission[] = [
   {
     id: 1,
-    name: 'Mars',
+    name: 'Z Mission',
     missionStatus: MissionStatus.Scheduled,
     rockets: [{
-      id: 1,
+      id: 11,
       missionId: 1,
       name: 'Red Dragon',
       rocketStatus: RocketStatus.OnGround,
@@ -20,13 +20,24 @@ export const TEST_MISSIONS: Mission[] = [
   },
   {
     id: 2,
-    name: 'Luna1',
+    name: 'Y Mission',
     missionStatus: MissionStatus.InProgress,
     rockets: [{
-      id: 2,
+      id: 12,
       missionId: 2,
       name: 'Dragon XL',
       rocketStatus: RocketStatus.OnGround,
+    }],
+  },
+  {
+    id: 3,
+    name: 'X Mission',
+    missionStatus: MissionStatus.InProgress,
+    rockets: [{
+      id: 13,
+      missionId: 3,
+      name: 'Dragon XL',
+      rocketStatus: RocketStatus.InSpace,
     }],
   },
 ];
