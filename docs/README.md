@@ -262,6 +262,7 @@ classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 Replace in-memory store with appropriate database. \
 Refactor application logging. \
 Add authorization and authentication. \
+Add event auditing and error monitoring to maintain high-quality service. \
 Add a business process model and a decision model for missions and rockets workflow. \
 Add a blockchain for missions and rockets management. \
 Switch to nanoservices on cloud platform.
