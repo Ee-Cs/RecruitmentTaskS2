@@ -90,7 +90,7 @@ SPC(In Space):::greenBox
 REP((In Repair)):::redBox
 
 %% Flows
-subgraph "Mission in Progress"
+subgraph "Space mission in progress"
   GND <--> SPC
 end
 GND <.-> REP
