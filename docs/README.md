@@ -117,7 +117,7 @@ END --> [*]
 
 %% Style definitions
 classDef schedClass fill: plum, stroke: #000, stroke-width: 2px
-classDef progClass fill: green, stroke: #000, stroke-width: 2px,font-weight:bold
+classDef progClass fill: lime, stroke: #000, stroke-width: 2px,font-weight:bold
 classDef pendClass fill: yellow, stroke: #000, stroke-width: 2px, font-style:italic,stroke-width:2px,stroke:red
 classDef endClass fill: peru, stroke: #000, stroke-width: 2px
 ```
@@ -258,11 +258,11 @@ classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 
 <details>
 <summary>Proposed enhancements</summary>
-Replace in-memory store with appropriate database. \
-Refactor application logging. \
-Add authorization and authentication. \
-Add a business process model and a decision model for missions and rockets workflow. \
-Add a blockchain for missions and rockets management. \
+Replace in-memory store with appropriate database.  
+Refactor application logging.  
+Add authorization and authentication.  
+Add a business process model and a decision model for missions and rockets workflow.  
+Add a blockchain for missions and rockets management.  
 Switch to nanoservices on cloud platform.
 </details>
 
