@@ -45,27 +45,44 @@ flowchart LR
 
 ## Mission Statuses
 ```mermaid
-flowchart LR
-SCD(Scheduled):::magentaBox
-PND((Pending)):::yellowBox
-PRG(In Progress):::greenBox
-END(Ended):::cyanBox
+---
+title: Mission State Diagram
+---
+stateDiagram
+direction LR
+%% State Definitions
+state "Scheduled" as SCH
+state CHO <<choice>>
+state "In Progress" as PRG
+note right of PRG
+  Space mission in progress.
+end note
+state "Pending" as PND
+state "Ended" as END
 
-subgraph "Mission in Progress"
-  SCD ==> PRG --> END
-end
-PRG <.-> PND
+%% Transitions
+[*] --> SCH:::schedClass
+SCH --> CHO
+CHO --> PRG:::progClass : rockets assigned
+CHO --> END:::endClass : mission cancelled
+PRG --> PND:::pendClass : rocket in repair
+PND --> PRG : rocket fixed
+PRG --> END : rockets unassigned
+END --> [*]
 
 %% Style Definitions
-  classDef redBox fill: #ff6666, stroke: #000, stroke-width: 2px
-  classDef greenBox fill: #00ff00, stroke: #000, stroke-width: 2px
-  classDef magentaBox fill: #ff00ff, stroke: #000, stroke-width: 2px
-  classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
+classDef schedClass fill: plum, stroke: #000, stroke-width: 2px
+classDef progClass fill: lime, stroke: #000, stroke-width: 2px,font-weight:bold
+classDef pendClass fill: gold, stroke: #000, stroke-width: 2px, font-style:italic,stroke-width:2px,stroke:red
+classDef endClass fill: peru, stroke: #000, stroke-width: 2px
 ```
-
 ## Rocket Statuses
 ```mermaid
 flowchart LR
+---
+title: Rocket Flowchart
+---
+
 %% 
 GND(On Ground):::yellowBox
 SPC(In Space):::greenBox
