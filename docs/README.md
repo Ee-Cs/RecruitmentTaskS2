@@ -19,8 +19,6 @@ Angular 20 + Angular Material application using an in-memory store.
   </tr>
 </table>
 
----
-
 ## Architecture
 ```mermaid
 ---
@@ -46,9 +44,11 @@ flowchart LR
   classDef orangeBox  fill: #ffa500,stroke: #000, stroke-width:2px
 ```
 
+---
+
 ```mermaid
 ---
-title: Models Class Diagram
+title: Model Class Diagram
 ---
 classDiagram
 class Mission {
@@ -85,6 +85,9 @@ MissionStatus <|.. Mission : missionStatus
 RocketStatus <|.. Rocket : rocketStatus
 ```
 
+---
+
+
 ```mermaid
 ---
 title: Mission State Diagram
@@ -118,6 +121,8 @@ classDef progClass fill: green, stroke: #000, stroke-width: 2px,font-weight:bold
 classDef pendClass fill: yellow, stroke: #000, stroke-width: 2px, font-style:italic,stroke-width:2px,stroke:red
 classDef endClass fill: peru, stroke: #000, stroke-width: 2px
 ```
+
+---
 
 ```mermaid
 ---
@@ -253,10 +258,11 @@ classDef yellowBox fill: #ffff00, stroke: #000, stroke-width: 2px
 
 <details>
 <summary>Proposed enhancements</summary>
-Replace in-memory store with appropriate database.\
-Add authorization and authentication.\
-Add a business process model and a decision model for missions and rockets workflow.\
-Add a blockchain for missions and rockets management.\
+Replace in-memory store with appropriate database. \
+Refactor application logging. \
+Add authorization and authentication. \
+Add a business process model and a decision model for missions and rockets workflow. \
+Add a blockchain for missions and rockets management. \
 Switch to nanoservices on cloud platform.
 </details>
 
@@ -278,9 +284,3 @@ Switch to nanoservices on cloud platform.
 - [ ] delete date
 - [ ] deleted by user
 </details>
-
-```diff
-+ This text is green (for additions or success).
-- This text is red (for deletions or warnings).
-```
-Use badges from a service like Shields.io
