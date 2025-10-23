@@ -1,0 +1,40 @@
+<mat-card class="home-card" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title>
+            <div class="home-card-row">
+                <div class="home-title">
+                    Home
+                </div>
+            </div>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+        <div class="home-card-row">
+            <div class="home-card-col repository-type-label">
+                Dataset
+            </div>
+            <div class="home-card-col">
+                <form [formGroup]="homeForm">
+                    <mat-radio-group formControlName="datasetTypeSelect" class="repository-type-radio-group"
+                            (change)="setDatasetType($event.value)">
+                        @for (datasetType of datasetTypeArray; track datasetType) {
+                        <mat-radio-button [value]="datasetType" class="repository-type-button">
+                            {{ describeDatasetType(datasetType) }}
+                        </mat-radio-button>
+                        }
+                    </mat-radio-group>
+                </form>
+            </div>
+            <div class="home-card-col home-card-col-actions">
+                <button mat-raised-button color="primary" class="load-dataset-button"
+                        (click)="initialiseDataset()"
+                        [disabled]="homeForm.controls.datasetTypeSelect.value === originalDatasetType"
+                        aria-label="Load dataset">
+                    Load dataset
+                </button>
+            </div>
+        </div>
+    </mat-card-actions>
+    <mat-card-content>
+    </mat-card-content>
+</mat-card>

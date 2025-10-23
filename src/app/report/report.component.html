@@ -1,0 +1,33 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      <h4>Reports</h4>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Missions and Rockets">
+        <div class="report-controls-row">
+          <div class="report-controls-group">
+            <button matFab extended (click)="generatePdf('open')">
+              <mat-icon>picture_as_pdf</mat-icon>
+              Open PDF
+            </button>
+          </div>
+          <div class="report-controls-group">
+            <button matFab extended (click)="generatePdf('print')">
+              <mat-icon>print</mat-icon>
+              Print PDF
+            </button>
+          </div>
+          <div class="report-controls-group">
+            <button matFab extended (click)="generatePdf('download')">
+              <mat-icon>cloud_download</mat-icon>
+              Download PDF
+            </button>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

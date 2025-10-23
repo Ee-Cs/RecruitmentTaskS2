@@ -1,0 +1,10 @@
+export const MISSION_READ_NAME = 'Transit';
+export const MISSION_CREATED_NAME = 'Created Mission';
+export const MISSION_UPDATED_NAME = 'Updated Mission';
+export const ROCKET_READ_NAME = 'Red Dragon';
+export const ROCKET_CREATED_NAME = 'Created Rocket';
+export const ROCKET_UPDATED_NAME = 'Updated Rocket';
+export const MISSIONS_NUMBER = 5;
+export const ROCKETS_NUMBER = 3;
+export const TRANSFERABLE_ROCKETS_NUMBER = 1;
+export const UNASSIGNED_ROCKET_NAME = 'Rocket To Transfer';

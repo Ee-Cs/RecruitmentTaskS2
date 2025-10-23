@@ -1,0 +1,133 @@
+<mat-grid-list cols="2" rowHeight="95%">
+  <mat-grid-tile>
+    <mat-card class="rocket-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="rocket-card-row">
+            <div class="transfer-title">
+              Unassigned Rockets
+            </div>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <div class="rocket-card-row">
+          <div class="rocket-card-col">
+            <button mat-stroked-button (click)="createRocket()">Create Unassigned Rocket</button>
+          </div>
+        </div>
+        <div class="rocket-card-row">
+          <div class="rocket-card-col">
+            <button matFab extended (click)="transferRockets('LEFT-SIDE')"
+              [disabled]="disableTransferButton('LEFT-SIDE')">
+              <mat-icon>east</mat-icon>
+              Assign
+            </button>
+          </div>
+        </div>
+      </mat-card-actions>
+      <mat-card-content>
+        <div class="table-container">
+          <table mat-table [dataSource]="leftSideRockets" class="rocket-pool-table" aria-label="Items">
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? toggleAllRows('LEFT-SIDE') : null"
+                  [checked]="leftSideSelection.hasValue() && isAllSelected('LEFT-SIDE')"
+                  [indeterminate]="leftSideSelection.hasValue() && !isAllSelected('LEFT-SIDE')"
+                  [aria-label]="checkboxLabel('LEFT-SIDE')">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                  (change)="$event ? leftSideSelection.toggle(row) : null" [checked]="leftSideSelection.isSelected(row)"
+                  [aria-label]="checkboxLabel('LEFT-SIDE', row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>Id</th>
+              <td mat-cell *matCellDef="let row">{{row.id}}</td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let row">{{row.name}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="leftSideSelection.toggle(row)"></tr>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="rocket-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="rocket-card-row">
+            <div class="transfer-title">
+              Mission Rockets
+            </div>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <div class="rocket-card-row">
+          <div class="rocket-card-col mission-label">
+            Mission
+          </div>
+          <div class="rocket-card-col">
+            <form [formGroup]="rightSideForm">
+              <mat-form-field appearance="outline">
+                <mat-select formControlName="rightSideSelect" [value]="rightSideForm.get('rightSideSelect')?.value"
+                  (selectionChange)="selectMission($event.value.id)">
+                  @for (mission of missions; track mission) {
+                  <mat-option [value]="mission">{{ mission.name }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </form>
+          </div>
+          <div class="rocket-card-col">
+            <button matFab extended (click)="transferRockets('RIGHT-SIDE')"
+              [disabled]="disableTransferButton('RIGHT-SIDE')">
+              <mat-icon>west</mat-icon>
+              Unassign
+            </button>
+          </div>
+        </div>
+      </mat-card-actions>
+      <mat-card-content>
+        <div class="table-container">
+          <table mat-table [dataSource]="rightSideRockets" class="rocket-table" aria-label="Items">
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? toggleAllRows('RIGHT-SIDE') : null"
+                  [checked]="rightSideSelection.hasValue() && isAllSelected('RIGHT-SIDE')"
+                  [indeterminate]="rightSideSelection.hasValue() && !isAllSelected('RIGHT-SIDE')"
+                  [aria-label]="checkboxLabel('RIGHT-SIDE')">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                  (change)="$event ? rightSideSelection.toggle(row) : null"
+                  [checked]="rightSideSelection.isSelected(row)" [aria-label]="checkboxLabel('RIGHT-SIDE', row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>Id</th>
+              <td mat-cell *matCellDef="let row">{{row.id}}</td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let row">{{row.name}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rightSideSelection.toggle(row)">
+            </tr>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
